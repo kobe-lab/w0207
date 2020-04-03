@@ -23,11 +23,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-if($_SERVER['HTTP_HOST'] == "myshopping.local"){
-$config['base_url'] = 'http://myshopping.local/';
-}else{
-    $config['base_url'] = 'http://myshopping.com.my/'; 
+$protocol = "http://";
+if(isset($_SERVER['SERVER_PORT'])) {
+	switch($_SERVER['SERVER_PORT']){
+		case "443":
+			$protocol = "https://";
+			break;
+		default:
+			$protocol = "http://";
+			break;
+	}
 }
+
+
+if(isset($_SERVER['HTTP_HOST'])) {
+	$config['base_url'] = $protocol.$_SERVER['HTTP_HOST']."/";
+} else {
+	$config['base_url'] = $protocol."jimmytest.aipi2.com";
+}
+
 /*
 |--------------------------------------------------------------------------
 | Index File

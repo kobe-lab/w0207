@@ -66,6 +66,7 @@ $route['product_detail/(:num)'] = 'frontend/product_detail/$1';
 $route['api/glogin']	 = 'api_login_manage/glogin';
 $route['api/flogin']	 = 'api_login_manage/flogin';
 
+$route['cron/visit']	 = 'cron_manage/index';
 
 $route['default_controller'] = 'frontend/home';
 $route['404_override'] = '';

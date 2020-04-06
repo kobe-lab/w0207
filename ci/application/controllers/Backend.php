@@ -1,6 +1,32 @@
 <?php
 class Backend extends CI_Controller {
 
+    private $data = [];
+
+    public function __construct(){
+        parent::__construct();
+        $is_admin = $this->session->userdata("is_admin");
+        if(!isset($is_admin)) {
+            redirect(base_url('adminlogin'));
+        }
+
+    }
+
+    public function logout(){
+        $this->session->unset_userdata('is_admin');
+        redirect(base_url('adminlogin'));
+    }
+
+    public function header(){
+
+        $this->load->view("backend/header", $this->data);
+    }
+
+    public function footer(){
+
+        $this->load->view("backend/footer", $this->data);
+    }
+
     public function dashboard(){
 
         $this->load->model("Visitor_model");
@@ -40,10 +66,12 @@ class Backend extends CI_Controller {
 
 
 
-		$this->load->view("header");
+        $this->header();
         $this->load->view("backend/dashboard", $this->data);
-		$this->load->view("footer");
-
+        $this->footer();
     }
+
+    
+
 }
 ?>

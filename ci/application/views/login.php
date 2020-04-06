@@ -20,18 +20,18 @@
 						<div class="main object-non-visible" data-animation-effect="fadeInUpSmall" data-effect-delay="100">
 							<div class="form-block center-block p-30 light-gray-bg border-clear">
 								<h2 class="title">Login</h2>
-								<form class="form-horizontal">
+								<form method="POST" action="<?=base_url('usersubmit')?>" class="form-horizontal">
 									<div class="form-group has-feedback">
-										<label for="inputUserName" class="col-sm-3 control-label">User Name</label>
+										<label for="inputUserName" class="col-sm-3 control-label">Email</label>
 										<div class="col-sm-8">
-											<input type="text" class="form-control" id="inputUserName" placeholder="User Name" required>
+											<input type="text" class="form-control" id="inputUserName" placeholder="User Name" name="email" required>
 											<i class="fa fa-user form-control-feedback"></i>
 										</div>
 									</div>
 									<div class="form-group has-feedback">
 										<label for="inputPassword" class="col-sm-3 control-label">Password</label>
 										<div class="col-sm-8">
-											<input type="password" class="form-control" id="inputPassword" placeholder="Password" required>
+											<input type="password" class="form-control" id="inputPassword" placeholder="Password" name="password" required>
 											<i class="fa fa-lock form-control-feedback"></i>
 										</div>
 									</div>
@@ -64,7 +64,7 @@
 									</div>
 								</form>
 							</div>
-							<p class="text-center space-top">Don't have an account yet? <a href="page-signup.html">Sing up</a> now.</p>
+							<p class="text-center space-top">Don't have an account yet? <a href="<?=base_url('signup')?>">Sign up</a> now.</p>
 						</div>
 						<!-- main end -->
 					</div>

@@ -24,6 +24,21 @@ class Frontend extends CI_Controller{
 
     }
 
+    public function currentuser(){
+        $is_user = $this->session->userdata("is_user");
+        if(!isset($is_admin)) {
+            redirect(base_url('login'));
+        }
+
+    }
+
+    // public function logout(){
+    //     $this->session->unset_userdata('is_admin');
+    //     redirect(base_url('adminlogin'));
+    // }
+
+
+
     public function home(){
 
         $this->data['arrivalList'] = $this->Product_model->get_where(array(
@@ -238,6 +253,36 @@ class Frontend extends CI_Controller{
         $this->load->view("login", $this->data);
         $this->load->view("footer", $this->data);
 
+    }
+
+    public function signup() {
+
+        $this->load->view("header", $this->data);
+        $this->load->view("signup", $this->data);
+        $this->load->view("footer", $this->data);
+
+    }
+
+    public function addsignup(){
+        
+        $fullname = $this->input->post("fullname" , true);
+        $givenname = $this->input->post("givenname" , true);
+        $familyname = $this->input->post("familyname" , true);
+        $email = $this->input->post("email" , true);
+        $password = $this->input->post("password" , true);
+
+        $this->load->model("User_model");
+
+        $this->User_model->insert(array(
+            'fullname' => $fullname,
+            'givenname' => $givenname,
+            'familyname' => $familyname,
+            'email' => $email,
+            'password' => $password,
+            'created_date' => date("Y-m-d H:i:s"),
+        ));
+
+        redirect(base_url('login'));
     }
 }
 

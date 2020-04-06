@@ -141,21 +141,30 @@
 
 											<!-- Collect the nav links, forms, and other content for toggling -->
 											<div class="collapse navbar-collapse" id="navbar-collapse-1">
-												<!-- main-menu -->
+											<!-- main-menu -->
 												<ul class="nav navbar-nav navbar-right">
 
 													<!-- mega-menu start -->
-												<div class="collapse navbar-collapse" id="navbar-collapse-1">
-												<!-- main-menu -->
-												<ul class="nav navbar-nav navbar-right">
-													<li>
-														<a href="<?=base_url('product_list')?>">Product List</a>
+													<li class="mega-menu active">
+														<!-- <a href="index.html" class="dropdown-toggle" data-toggle="dropdown">Home</a> -->
+														<a href="<?=base_url('')?>" >Home</a>
 													</li>
-													<li>
-														<a href="<?=base_url('login')?>">Login</a>
+
+													
+													<!-- mega-menu end -->
+													<!-- mega-menu start -->
+													<li class="mega-menu">
+														<a href="<?=base_url('product_list')?>" >Product List</a>
+
 													</li>
-												</ul>
-												<!-- main-menu end -->
+													<!-- mega-menu end -->
+
+													<!-- mega-menu start -->
+													<li class="mega-menu">
+														<a href="<?=base_url('login')?>" >Login</a>
+
+													</li>
+													<!-- mega-menu end -->
 												
 												<!-- header dropdown buttons -->
 												<div class="header-dropdown-buttons hidden-xs hidden-sm">

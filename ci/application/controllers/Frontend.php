@@ -336,6 +336,13 @@ class Frontend extends CI_Controller{
         $this->load->view("shopcart", $this->data);
         $this->load->view("footer", $this->data);
     }
+
+    public function shopcheckout(){
+
+        $this->load->view("header", $this->data);
+        $this->load->view("shopcheckout", $this->data);
+        $this->load->view("footer", $this->data);
+    }
 }
 
 

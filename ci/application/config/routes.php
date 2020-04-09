@@ -83,6 +83,7 @@ $route['searchresult'] = 'frontend/skeyword';
 
 //shopcart and checkout payment
 $route['shopcart'] = 'frontend/shopcart';
+$route['shopcheckout'] = 'frontend/shopcheckout';
 
 $route['api/glogin']	 = 'api_login_manage/glogin';
 $route['api/flogin']	 = 'api_login_manage/flogin';

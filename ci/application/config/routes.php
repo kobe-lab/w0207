@@ -51,10 +51,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 
 
-$route['login'] = 'frontend/login';
-$route['signup'] = 'frontend/signup';
-$route['addsignup'] = 'frontend/addsignup';
-$route['getProductAPI'] = 'frontend/getProductAPI';
+
+
 $route['getProductAPI'] = 'frontend/getProductAPI';
 $route['getProductAPI/(:num)'] = 'frontend/getProductAPI/$1';
 $route['addcartAPI'] = 'frontend/addcartAPI';
@@ -64,11 +62,27 @@ $route['product_list'] = 'frontend/product_list';
 $route['product_list/(:num)'] = 'frontend/product_list/$1';
 $route['product_detail/(:num)'] = 'frontend/product_detail/$1';
 
+//admin login
 $route['backend/dashboard'] = 'backend/dashboard';
 $route['adminlogout'] = 'backend/logout';
 $route['adminlogin'] = 'login/index';
 $route['adminsubmit'] = 'login/submit';
+
+//user login
+$route['login'] = 'frontend/login';
+$route['signup'] = 'frontend/signup';
+$route['addsignup'] = 'frontend/addsignup';
+$route['updateprofile'] = 'frontend/updateprofile';
+$route['userlogout'] = 'frontend/logout';
 $route['usersubmit'] = 'Userlogin/submit';
+$route['useredit'] = 'frontend/useredit';
+
+//search function
+$route['search'] = 'frontend/skeyword';
+$route['searchresult'] = 'frontend/skeyword';
+
+//shopcart and checkout payment
+$route['shopcart'] = 'frontend/shopcart';
 
 $route['api/glogin']	 = 'api_login_manage/glogin';
 $route['api/flogin']	 = 'api_login_manage/flogin';

@@ -126,7 +126,7 @@
 
 													<!-- logo -->
 													<div id="logo-mobile" class="logo">
-														<a href="index.html"><img id="logo-img-mobile" src="images/logo_light_blue.png" alt="The Project"></a>
+														<a href="index.html"><img id="logo-img-mobile" src="assets/template/images/logo_light_blue.png" alt="The Project"></a>
 													</div>
 
 													<!-- name-and-slogan -->
@@ -158,23 +158,41 @@
 
 													</li>
 													<!-- mega-menu end -->
-
+											
 													<!-- mega-menu start -->
-													<li class="mega-menu">
-														<a href="<?=base_url('login')?>" >Login</a>
-
+												
+											
+													<?php
+													if (isset($userdata) && !empty($userdata)) { ?>
+													<li class="dropdown ">
+														<a class="dropdown-toggle" data-toggle="dropdown"><?=$userdata['fullname']?></a>
+														<ul class="dropdown-menu">
+															<li ><a href="template/index-shop.html">Shop Home 1</a></li>
+															<li ><a href="template/index-shop-2.html">Shop Home 2</a></li>
+															<li ><a href="<?=base_url('useredit')?>">Edit Profile</a></li>
+															<li ><a href="<?=base_url('userlogout')?>"><strong>Logout</strong></a></li>
+														</ul>
 													</li>
+													<?php
+													} else {
+													?>
+														<li class="mega-menu">
+														<a href="<?=base_url('login')?>" >Login</a>
+														</li>
+													<?php
+													}
+													?>
 													<!-- mega-menu end -->
 												
 												<!-- header dropdown buttons -->
 												<div class="header-dropdown-buttons hidden-xs hidden-sm">
-													<div class="btn-group dropdown">
+													<div class="btn-group dropdown"> 
 														<button type="button" class="btn dropdown-toggle" data-toggle="dropdown"><i class="icon-search"></i></button>
 														<ul class="dropdown-menu dropdown-menu-right dropdown-animation">
 															<li>
-																<form role="search" class="search-box margin-clear">
+																<form role="search" method="GET" action="<?=base_url('search')?>" class="search-box margin-clear">
 																	<div class="form-group has-feedback">
-																		<input type="text" class="form-control" placeholder="Search">
+																		<input type="text" name="title" class="form-control" placeholder="Search">
 																		<i class="icon-search form-control-feedback"></i>
 																	</div>
 																</form>
@@ -223,7 +241,7 @@
 																	</tbody>
 																</table>
 																<div class="panel-body text-right">
-																	<a href="shop-cart.html" class="btn btn-group btn-gray btn-sm">View Cart</a>
+																	<a href="<?=base_url('shopcart')?>" class="btn btn-group btn-gray btn-sm">View Cart</a>
 																	<a href="shop-checkout.html" class="btn btn-group btn-gray btn-sm">Checkout</a>
 																</div>
 															</li>

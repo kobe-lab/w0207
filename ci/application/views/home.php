@@ -191,7 +191,7 @@
 													<span class="badge">30% OFF</span>
 													<div class="overlay-to-top links">
 														<span class="small">
-															<a href="#" class="btn-sm-link"><i class="fa fa-heart-o pr-10"></i>Add to Wishlist</a>
+															<a href="javascript:;" onclick="addwishAjax('<?=$v['id']?>')"><i class="fa fa-heart-o pr-10"></i>Add to Wishlist</a>
 															<a href="<?=base_url('product_detail/'.$v['id'])?>" class="btn-sm-link"><i class="icon-link pr-5"></i>View Details</a>
 														</span>
 													</div>
@@ -227,7 +227,7 @@
 													<span class="badge">30% OFF</span>
 													<div class="overlay-to-top links">
 														<span class="small">
-															<a href="#" class="btn-sm-link"><i class="fa fa-heart-o pr-10"></i>Add to Wishlist</a>
+															<a href="javascript:;" onclick="addwishAjax('<?=$v['id']?>')"><i class="fa fa-heart-o pr-10"></i>Add to Wishlist</a>
 															<a href="<?=base_url('product_detail/'.$v['id'])?>" class="btn-sm-link"><i class="icon-link pr-5"></i>View Details</a>
 														</span>
 													</div>
@@ -263,7 +263,7 @@
 													<span class="badge">30% OFF</span>
 													<div class="overlay-to-top links">
 														<span class="small">
-															<a href="#" class="btn-sm-link"><i class="fa fa-heart-o pr-10"></i>Add to Wishlist</a>
+														<a href="javascript:;" onclick="addwishAjax('<?=$v['id']?>')"><i class="fa fa-heart-o pr-10"></i>Add to Wishlist</a>
 															<a href="<?=base_url('product_detail/'.$v['id'])?>" class="btn-sm-link"><i class="icon-link pr-5"></i>View Details</a>
 														</span>
 													</div>

@@ -55,9 +55,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $route['getProductAPI'] = 'frontend/getProductAPI';
 $route['getProductAPI/(:num)'] = 'frontend/getProductAPI/$1';
-$route['addcartAPI'] = 'frontend/addcartAPI';
 $route['mychart'] = 'frontend/mychart';
-$route['addcart'] = 'frontend/addcart';
 $route['product_list'] = 'frontend/product_list';
 $route['product_list/(:num)'] = 'frontend/product_list/$1';
 $route['product_detail/(:num)'] = 'frontend/product_detail/$1';
@@ -82,8 +80,17 @@ $route['search'] = 'frontend/skeyword';
 $route['searchresult'] = 'frontend/skeyword';
 
 //shopcart and checkout payment
+$route['addcart'] = 'frontend/addcart';
+$route['addcartAPI'] = 'frontend/addcartAPI';
+$route['removecartAPI'] = 'frontend/removecartAPI';
 $route['shopcart'] = 'frontend/shopcart';
 $route['shopcheckout'] = 'frontend/shopcheckout';
+
+//wishlist
+$route['addwishlistAPI'] = 'frontend/addwishlistAPI';
+$route['wishlist'] = 'frontend/wishlist';
+$route['removewishlistAPI'] = 'frontend/removewishlistAPI';
+
 
 $route['api/glogin']	 = 'api_login_manage/glogin';
 $route['api/flogin']	 = 'api_login_manage/flogin';

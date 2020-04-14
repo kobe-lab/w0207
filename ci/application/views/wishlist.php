@@ -4,7 +4,7 @@
 				<div class="container">
 					<ol class="breadcrumb">
 						<li><i class="fa fa-home pr-10"></i><a href="index.html">Home</a></li>
-						<li class="active">Shopping Cart</li>
+						<li class="active">Wishlist</li>
 					</ol>
 				</div>
 			</div>
@@ -24,7 +24,7 @@
 
 							<!-- page-title start -->
 							<!-- ================ -->
-							<h1 class="page-title">Shopping Cart</h1>
+							<h1 class="page-title">Wishlist</h1>
 							<div class="separator-2"></div>
 							<!-- page-title end -->
                           
@@ -33,7 +33,6 @@
 									<tr>
 										<th>Product </th>
 										<th>Price </th>
-										<th>Quantity</th>
 										<th>Remove </th>
 										<th class="amount">Total</th>
 									</tr>
@@ -41,39 +40,31 @@
 								<tbody>
                                 <?php
                             $total_amount = 0;
-                            $total_qty = 0;
-                            if(!empty($cartList))
+                            // $total_qty = 0;
+                            if(!empty($wishList))
                             {
-                                foreach($cartList as $v)
+                                foreach($wishList as $v)
                                 {
                             ?>
 									<tr class="remove-data">
 										<td class="product"><a href="shop-product.html"><?=$v['product_title']?></a> <small>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas inventore modi.</small></td>
 										<td class="price">RM<?=$v['product_price']?> </td>
-										<td class="quantity">
+										<!-- <td class="quantity">
 											<div class="form-group">
 												<input type="text" class="form-control" value="<?=$v['qty']?>">
 											</div>											
-										</td>
-										<td class="remove"><a  href="javascript:;" onclick="removeCartAjax('<?=$v['id']?>')" class="btn btn-remove btn-sm btn-default">Remove</a></td>
-										<td class="amount">RM<?=$v['product_price']*$v['qty']?> </td>
+										</td> -->
+										<td class="remove"><a  href="javascript:;" onclick="removewishlistAjax('<?=$v['id']?>')" class="btn btn-remove btn-sm btn-default">Remove</a></td>
+										<td class="amount">RM<?=$v['product_price']?> </td>
                                     </tr>
                                     <?php
-                                        $total_qty    += $v['qty'];
-                                        $total_amount += $v['product_price']*$v['qty'];
+                                        // $total_qty    += $v['qty'];
+                                        $total_amount += $v['product_price'];
                                           }
                                            }                            
                                            ?>
-									<tr>
-										<td colspan="3">Discount Coupon</td>
-										<td colspan="2">
-											<div class="form-group">
-												<input type="text" class="form-control">
-											</div>											
-										</td>
-                                    </tr>
-									<tr>
-										<td class="total-quantity" colspan="4">Total <?=$total_qty?> Items</td>
+								<tr>
+										<td class="total-quantity" colspan="3">Total 4 Items</td>
 										<td class="total-amount">RM<?=$total_amount?></td>
 									</tr>
 								</tbody>

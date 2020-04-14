@@ -184,20 +184,124 @@
 		<!-- Custom Scripts -->
 		<script type="text/javascript" src="<?=base_url('assets/template/js/custom.js')?>"></script>
 		<script>
+			function print_minicart(markup){
+				$("#miniCart tbody").append(markup);
+
+			}
+		
 			function addCartAjax(pid){
-				console.log(pid);
 
 				$.post("<?=base_url('addcartAPI')?>", {qty:1,product_id:pid}, function(result){
+
+					// console.log(result);
+					result = JSON.parse(result); 
+					if(result.status =="ok"){
+						alert("Add cacrt successfuly");
+					}else{
+						alert("something Wrong");
+					}
+
+					//the minicart number effect
+					document.getElementById("mini_cartTotal").innerHTML = result.cartQty;
+
+					//the minicart dropdown table content
+					var markup 	 = "";
+
+					for (i = 0; i < result.cartData.length; i++) { 
+						var href = "<?=base_url('product_detail/')?>"+result.cartData[i]["product_id"];
+						markup += "<tr><td class='quantity'>"+result.cartData[i]["qty"]+" x</td><td class='product'><a href="+href+">" + result.cartData[i]["product_title"] + "</a></td><td class='amount'>$" + (result.cartData[i]["qty"]*result.cartData[i]["product_price"]).toFixed(2) + "</td></tr>";
+					}
+					markup += "<td class='total-quantity' colspan='2'>Total " + result.cartQty + " Items</td><td>$" + result.total_price + "</td></tr>";
+
+
+
+					var table = document.getElementById("miniCart");
+					//or use :  var table = document.all.tableid;
+					for(var i = table.rows.length - 1; i > 0; i--)
+					{
+						table.deleteRow(i);
+					}
+					$("#miniCart tbody").append(markup);
+
+				});
+				
+				}
+
+				function addwishAjax(pid){
+
+					$.post("<?=base_url('addwishlistAPI')?>", {product_id:pid}, function(result){
+
+						console.log(result);
+						result = JSON.parse(result); 
+						if(result.status =="ok"){
+							alert("Add wishlist successfuly");
+							console.log("Add wishlist successfuly");
+						}else{
+							alert("something Wrong");
+						}
+
+						// //the minicart number effect
+						document.getElementById("mini_wishlist").innerHTML = result.wishqty;
+
+						// //the minicart dropdown table content
+						var markup 	 = "";
+
+
+						for (i = 0; i < result.wishData.length; i++) { 
+							var href = "<?=base_url('product_detail/')?>"+result.wishData[i]["product_id"];
+						
+							markup += "<tr><td class='product'><a href="+href+">" + result.wishData[i]["product_title"] + "</a></td><td class='amount'>$" + (result.wishData[i]["product_price"]).toFixed(2) + "</td></tr>";
+						}
+
+						
+						markup += "<td class='total-quantity'>Total " + result.wishqty + " Items</td><td>$" + result.total_price + "</td></tr>";
+
+
+
+						var table = document.getElementById("wishlist");
+						// or use :  var table = document.all.tableid;
+						for(var i = table.rows.length - 1; i > 0; i--)
+						{
+							table.deleteRow(i);
+						}
+						$("#wishlist tbody").append(markup);
+
+
+					});
+					
+					}
+			
+			function removeCartAjax(cid){
+				console.log(cid);
+
+				$.post("<?=base_url('removecartAPI')?>", {cart_id:cid}, function(result){
 					console.log(result);
 					result = JSON.parse(result);
 					if(result.status == "OK") {
-						alert("Add cart successfully");
+						alert("Remove cart successfully");
 					} else {
 						alert("Something wrong");
 					}
 				});
 
 			}
+
+			function removewishlistAjax(wid){
+				console.log(wid);
+
+				$.post("<?=base_url('removewishlistAPI')?>", {wishlist_id:wid}, function(result){
+					console.log(result);
+					result = JSON.parse(result);
+					if(result.status == "OK") {
+						alert("Remove cart successfully");
+					} else {
+						alert("Something wrong");
+					}
+				});
+
+			}
+
+			
 		</script>
 	</body>
 </html>

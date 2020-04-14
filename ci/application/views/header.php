@@ -186,6 +186,7 @@
 												
 												<!-- header dropdown buttons -->
 												<div class="header-dropdown-buttons hidden-xs hidden-sm">
+
 													<div class="btn-group dropdown"> 
 														<button type="button" class="btn dropdown-toggle" data-toggle="dropdown"><i class="icon-search"></i></button>
 														<ul class="dropdown-menu dropdown-menu-right dropdown-animation">
@@ -199,12 +200,60 @@
 															</li>
 														</ul>
 													</div>
-											
+													
 													<div class="btn-group dropdown">
-														<button type="button" class="btn dropdown-toggle" data-toggle="dropdown"><i class="icon-basket-1"></i><span class="cart-count default-bg"><?=$cartTotal?></span></button>
+													<button type="button" class="btn dropdown-toggle" data-toggle="dropdown" data-animation-effect="swing" data-effect-delay="1000"><i class="fa fa-heart-o"></i><span id="mini_wishlist" class="cart-count default-bg"><?=$wishlistTotal?></span></button>
+														
+													<ul class="dropdown-menu dropdown-menu-right dropdown-animation cart">
+															<li>
+																<table class="table table-hover" id="wishlist">
+																	<thead>
+																		<tr>
+																			<th class="product">Product</th>
+																			<th class="amount">Price</th>
+																		</tr>
+																	</thead>
+																	<tbody>
+
+                                                                        <?php
+                                                                           $total_amount = 0;
+                                                                            if(!empty($wishList)){
+                                                                                
+                                                                                foreach($wishList as $v){
+                                                                        
+                                                                        ?>
+																			<tr>
+																				<td class="product"><a href="shop-product.html"><?=$v['product_title']?></a></td>
+																				
+																				<td class="amount">RM<?=$v['product_price']?></td>
+																			</tr>
+																			
+																		<?php
+																		$total_amount += $v['product_price'];
+                                                                                }
+                                                                            }
+                                                                        
+                                                                        ?>
+
+																		<tr>
+																			<td class="total-quantity" >Total <?=$wishlistTotal?>  Items</td>
+																			<td class="total-amount">RM<?=$total_amount?></td>
+																		</tr>
+																	</tbody>
+																</table>
+																<div class="panel-body text-right">
+																	<a href="<?=base_url('wishlist')?>" class="btn btn-group btn-gray btn-sm">View wishlist</a>
+																</div>
+															</li>
+														</ul>
+													</div>
+
+													<div class="btn-group dropdown">
+														<button type="button" class="btn dropdown-toggle" data-toggle="dropdown" data-animation-effect="jello" data-effect-delay="200"><i class="icon-basket-1"></i><span id="mini_cartTotal" class="cart-count default-bg"><?=$cartTotal?></span></button>
+														
 														<ul class="dropdown-menu dropdown-menu-right dropdown-animation cart">
 															<li>
-																<table class="table table-hover">
+																<table class="table table-hover" id="miniCart">
 																	<thead>
 																		<tr>
 																			<th class="quantity">QTY</th>
@@ -247,9 +296,9 @@
 															</li>
 														</ul>
 													</div>
-												</div>
+											
 												<!-- header dropdown buttons end-->
-												
+												</ul>
 											</div>
 
 										</div>

@@ -8,6 +8,8 @@ class Frontend extends CI_Controller{
         $this->load->model("Product_model");
         $this->load->model("Cart_model");
         $this->load->model("User_model");
+        $this->load->model("Wishlist_model");
+        
         
         $sid = session_id();
 
@@ -23,12 +25,27 @@ class Frontend extends CI_Controller{
             'is_deleted' => 0,
         ));
 
+        $this->data['wishlistTotal'] = $this->Wishlist_model->record_count(array(
+            'sid' => $sid,
+            'is_deleted' => 0,
+
+        ));
+      
+
+        $this->data['wishList'] = $this->Wishlist_model->get_where(array(
+            'sid' => $sid,
+            'is_deleted' => 0,
+        ));
+
+
+
         $user_id = $this->session->userdata("is_user");
         $this->data['user_id'] = $user_id;
          
         $this->data['userdata'] =  $this->User_model->getOne(array(
                 'id' => $user_id,
             ));
+        
         
 
         
@@ -134,63 +151,205 @@ class Frontend extends CI_Controller{
 
 
     public function addcartAPI(){
+        $sid            = session_id();
+        $qty            = $this->input->post("qty", true); 
+        $product_id     = $this->input->post("product_id", true); 
+        $cartQty        = 0;
+        $total_price    = 0;
+
+        $productData = $this->Product_model->getOne(array(
+            'id' =>$product_id,
+        ));
+
+        // unkown_error
+        if(empty($productData)){
+            show_error();
+        }
+
+        // testing
+        $product_title = $productData['title'];
+        $product_price = $productData['price'];
+
+        $cartData = $this->Cart_model->getOne(array(
+            "sid" => $sid,
+            'product_id' => $product_id,
+            'is_deleted' => 0,
+        ));
+
+
+
+        if(!empty($cartData)){
+
+            $currentQty = $cartData['qty'];
+            $finalQty    = $currentQty + $qty;
+
+            $this->Cart_model->update(array(
+                'id' =>$cartData['id'],
+            ),array(
+                'qty' =>$finalQty,
+                'modified_date' => date("Y-m-d H:i:s"),
+            ));
+
+
+        }else{
+
+            $cart_id = $this->Cart_model->insert(array(
+                "sid"   =>$sid,
+                "qty"   =>$qty,
+                "product_id"   =>$product_id,
+                "product_title"   =>$product_title,
+                "product_price"   =>$product_price,
+                "created_date"   =>date("Y-m-d H:i:s"),
+            ));
+        }
+
+
+        $wholeCartData = $this->Cart_model->get_where(array(
+            "sid" => $sid,
+            'is_deleted' => 0,
+
+        ));
+
+        foreach($wholeCartData as $k=>$v){
+            $cartQty += $wholeCartData[$k]["qty"];
+            $total_price += ($wholeCartData[$k]["product_price"]*$wholeCartData[$k]["qty"]);
+        }
+
+        echo json_encode(array(
+            'cartQty'=>$cartQty,
+            'cartData'=>$wholeCartData,
+            'total_price'=>$total_price,
+            'status' => "ok",
+        ));
+
+    }
+    
+    public function addwishlistAPI(){
+        $sid            = session_id();
+        $product_id     = $this->input->post("product_id", true);
+        $total_price    = 0; 
+
+        $productData = $this->Product_model->getOne(array(
+            'id' =>$product_id,
+        ));
+
+        // unkown_error
+        if(empty($productData)){
+            show_error();
+        }
+
+        // testing
+        $product_title = $productData['title'];
+        $product_price = $productData['price'];
+
+        // $wishData = $this->Wishlist_model->getOne(array(
+        //     "sid" => $sid,
+        //     'product_id' => $product_id,
+        //     'is_deleted' => 0,
+        // ));
+
+
+
+        // if(!empty($wishData)){
+
+        //     $currentQty = $cartData['qty'];
+        //     $finalQty    = $currentQty + $qty;
+
+        //     $this->Wishlist_model->update(array(
+        //         'id' =>$cartData['id'],
+        //     ),array(
+        //         'qty' =>$finalQty,
+        //         'modified_date' => date("Y-m-d H:i:s"),
+        //     ));
+
+
+        // }else{
+
+            $wishlist_id = $this->Wishlist_model->insert(array(
+                "sid"   =>$sid,
+                "product_id"       =>$product_id,
+                "product_title"   =>$product_title,
+                "product_price"   =>$product_price,
+                "is_deleted"    =>0,
+                "created_date"   =>date("Y-m-d H:i:s"),
+            ));
+        
+            $wishcount = $this->Wishlist_model->record_count(array(
+                'sid' => $sid,
+                'is_deleted' => 0,
+            ));
+    
+            $wholeCartData = $this->Wishlist_model->get_where(array(
+                "sid" => $sid,
+                'is_deleted' => 0,
+    
+            ));
+    
+            foreach($wholeCartData as $k=>$v){
+                // $cartQty += $wholeCartData[$k]["qty"];
+                $total_price += ($wholeCartData[$k]["product_price"]);
+            }
+    
+            echo json_encode(array(
+                // 'wish_product'=>$wish_product,
+                // 'wish_detail'=>$wish_detail,
+                // 'sid'=>$sid,
+                'wishData'=>$wholeCartData,
+                'total_price'=>$total_price,
+                'status' => "ok",
+                'wishqty'=> $wishcount,
+            ));
+
+    }
+
+
+
+
+    public function removecartAPI(){
 		$sid = session_id();
-		$qty 			= $this->input->post("qty", true);
-		$product_id 	= $this->input->post("product_id", true);
+		$cart_id 	= $this->input->post("cart_id", true);
 
-		$productData = $this->Product_model->getOne(array(
-			'id' => $product_id,
-		));
-
-		if(empty($productData)) {
-			show_error();
-		}
-
-		$product_title = $productData['title'];
-		$product_price = $productData['price'];
-
-		//Determine is there any same product in cart in same sid
-		//if have update
-		//if not insert
 		$cartData = $this->Cart_model->getOne(array(
-			'sid' => $sid,
-			'product_id' => $product_id,
-			'is_deleted' => 0,
+            'id' => $cart_id 
 		));
 
-		if(!empty($cartData)) {
-
-			$currentQty = $cartData['qty'];
-			$finalQty = $currentQty + $qty;
-
-			$this->Cart_model->update(array(
-				'id' => $cartData['id'],
-			), array(
-				'qty' => $finalQty,
-				'modified_date' => date("Y-m-d H:i:s"),
-			));
-
-		} else {
-
-			$cart_id = $this->Cart_model->insert(array(
-				'sid' => $sid,
-				'qty' => $qty,
-				'product_id' => $product_id,
-				'product_title' => $product_title,
-				'product_price' => $product_price,
-				'created_date' => date("Y-m-d H:i:s"),
-			));
-
-		}
-
-		echo json_encode(array(
-			'status' => "OK",
-		));
-
+	
+        $this->Cart_model->update(array(
+		    'id' => $cartData['id'],
+		), array(
+            'is_deleted' => 1,
+			'modified_date' => date("Y-m-d H:i:s"),
+            ));
+            
+            echo json_encode(array(
+                'status' => "OK",
+            ));
+		
 
 	}
 
-    
+    public function removewishlistAPI(){
+		$sid = session_id();
+		$wishlist_id 	= $this->input->post("wishlist_id", true);
+
+		$wishlistData = $this->Wishlist_model->getOne(array(
+            'id' => $wishlist_id 
+		));
+
+	
+        $this->Wishlist_model->update(array(
+		    'id' => $wishlistData['id'],
+		), array(
+            'is_deleted' => 1,
+			'modified_date' => date("Y-m-d H:i:s"),
+            ));
+            
+            echo json_encode(array(
+                'status' => "OK",
+            ));
+		
+
+	}
 
     public function addcart(){
 
@@ -341,6 +500,14 @@ class Frontend extends CI_Controller{
 
         $this->load->view("header", $this->data);
         $this->load->view("shopcheckout", $this->data);
+        $this->load->view("footer", $this->data);
+    }
+
+
+    public function wishlist(){
+
+        $this->load->view('header', $this->data);
+        $this->load->view("wishlist", $this->data);
         $this->load->view("footer", $this->data);
     }
 }

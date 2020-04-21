@@ -240,37 +240,33 @@
 							alert("something Wrong");
 						}
 
-						// //the minicart number effect
-						document.getElementById("mini_wishlist").innerHTML = result.wishqty;
+				// 		document.getElementById("mini_wishlist").innerHTML = result.wishqty;
 
-						// //the minicart dropdown table content
-						var markup 	 = "";
-
-
-						for (i = 0; i < result.wishData.length; i++) { 
-							var href = "<?=base_url('product_detail/')?>"+result.wishData[i]["product_id"];
-						
-							markup += "<tr><td class='product'><a href="+href+">" + result.wishData[i]["product_title"] + "</a></td><td class='amount'>$" + (result.wishData[i]["product_price"]).toFixed(2) + "</td></tr>";
-						}
-
-						
-						markup += "<td class='total-quantity'>Total " + result.wishqty + " Items</td><td>$" + result.total_price + "</td></tr>";
+				// 	// //the wishlist dropdown table content
+				// 	var markup 	 = "";
+ 
 
 
-
-						var table = document.getElementById("wishlist");
-						// or use :  var table = document.all.tableid;
-						for(var i = table.rows.length - 1; i > 0; i--)
-						{
-							table.deleteRow(i);
-						}
-						$("#wishlist tbody").append(markup);
+				// 	for (i = 0; i < result.wishData.length; i++) { 
+				// 		var href = "<?=base_url('product_detail/')?>"+result.wishData[i]["product_id"];
+				// 		markup += "<tr><td class='quantity'>"+result.wishData[i]["qty"]+" x</td><td class='product'><a href="+href+">" + result.wishData[i]["product_title"] + "</a></td><td class='amount'>$" + (result.wishData[i]["qty"]*result.wishData[i]["product_price"]).toFixed(2) + "</td></tr>";
+				// 	}
+				// 	markup += "<td class='total-quantity' colspan='2'>Total " + result.wishQty + " Items</td><td>$" + result.total_price + "</td></tr>";
 
 
-					});
+				// 	var table = document.getElementById("wishlist");
+				// 	// or use :  var table = document.all.tableid;
+				// 	for(var i = table.rows.length - 1; i > 0; i--)
+				// 	{
+				// 		table.deleteRow(i);
+				// 	}
+				// 	$("#wishlist tbody").append(markup);
 					
-					}
 			
+				 
+			});
+				
+			}
 			function removeCartAjax(cid){
 				console.log(cid);
 

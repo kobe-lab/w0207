@@ -90,9 +90,11 @@
 									</tbody>
 								</table>
 								<div class="space-bottom"></div>
+
+								<form action="<?=base_url('shopcheckoutreview')?>" method="POST" role="form" class="form-horizontal" id="billing-information">
 							<fieldset>
 								<legend>Billing information</legend>
-								<form action="<?=base_url('cart_checkout')?>" method="POST" role="form" class="form-horizontal" id="billing-information">
+							
                                     
                                     <div class="row">
 										<div class="col-lg-3">
@@ -102,25 +104,25 @@
 											<div class="form-group">
 												<label for="billingFirstName" class="col-md-2 control-label">First Name<small class="text-default">*</small></label>
 												<div class="col-md-10">
-													<input type="text" class="form-control" id="billingFirstName" placeholder="First Name" name="B_First_Name">
+													<input type="text" class="form-control" id="billingFirstName" placeholder="First Name" name="b_first_name">
 												</div>
 											</div>
 											<div class="form-group">
 												<label for="billingLastName" class="col-md-2 control-label">Last Name<small class="text-default">*</small></label>
 												<div class="col-md-10">
-													<input type="text" class="form-control" id="billingLastName" placeholder="Last Name" name="B_Last_Name">
+													<input type="text" class="form-control" id="billingLastName" placeholder="Last Name" name="b_last_name">
 												</div>
 											</div>
 											<div class="form-group">
 												<label for="billingTel" class="col-md-2 control-label">Telephone<small class="text-default">*</small></label>
 												<div class="col-md-10">
-													<input type="text" class="form-control" id="billingTel" placeholder="Telephone" name="B_Telephone">
+													<input type="text" class="form-control" id="billingTel" placeholder="Telephone" name="b_tel">
 												</div>
 											</div>
 											<div class="form-group">
 												<label for="billingemail" class="col-md-2 control-label" >Email<small class="text-default">*</small></label>
 												<div class="col-md-10">
-													<input type="email" class="form-control" id="billingemail" placeholder="Email" name="B_Email">
+													<input type="email" class="form-control" id="billingemail" placeholder="Email" name="b_email">
 												</div>
 											</div>
 										</div>
@@ -135,19 +137,19 @@
 											<div class="form-group">
 												<label for="billingAddress1" class="col-md-2 control-label">Address 1<small class="text-default">*</small></label>
 												<div class="col-md-10">
-													<input type="text" class="form-control" id="billingAddress1" value="Address 1" name="B_Address_1">
+													<input type="text" class="form-control" id="billingAddress1" value="Address 1" name="b_Address_1">
 												</div>
 											</div>
 											<div class="form-group">
 												<label for="billingAddress2" class="col-md-2 control-label">Address 2</label>
 												<div class="col-md-10">
-													<input type="text" class="form-control" id="billingAddress2" value="Address 2" name="B_Address_2">
+													<input type="text" class="form-control" id="billingAddress2" value="Address 2" name="b_Address_2">
 												</div>
 											</div>
 											<div class="form-group">
 												<label class="col-md-2 control-label">Country<small class="text-default">*</small></label>
 												<div class="col-md-10">
-													<select class="form-control">
+													<select class="form-control" name="b_country">
 														<option value="AF">Afghanistan</option>
 														<option value="AX">Aland Islands</option>
 														<option value="AL">Albania</option>
@@ -404,13 +406,13 @@
 											<div class="form-group">
 												<label for="billingCity" class="col-md-2 control-label">City<small class="text-default">*</small></label>
 												<div class="col-md-10">
-													<input type="text" class="form-control" id="billingCity" value="City" name="B_City">
+													<input type="text" class="form-control" id="billingCity" value="City" name="b_city">
 												</div>
 											</div>
 											<div class="form-group">
 												<label for="billingPostalCode" class="col-md-2 control-label">Zip Code<small class="text-default">*</small></label>
 												<div class="col-md-10">
-													<input type="text" class="form-control" id="billingPostalCode" value="Postal Code" name="B_Postal_Code">
+													<input type="text" class="form-control" id="billingPostalCode" value="Postal Code" name="b_postal_code">
 												</div>
 											</div>
 										</div>
@@ -423,20 +425,18 @@
 										<div class="col-lg-8 col-lg-offset-1">
 											<div class="form-group">
 												<div class="col-md-12">
-													<textarea class="form-control" rows="4" name="B_remarks"></textarea>
+													<textarea class="form-control" rows="4" name="b_remarks"></textarea>
 												</div>
 											</div>
 										</div>
 									</div>
-                                </form>
+                                
                                 
                             </fieldset>
                             
 							<fieldset>
 								<legend>Shipping information</legend>
-								<!-- <form action="<?=base_url('cart_checkout')?>" method="post" role="form" class="form-horizontal" id="shipping-information"> -->
-								<form role="form" class="form-horizontal" id="shipping-information-container">
-									<div id="shipping-information" class="space-bottom">
+								<div id="shipping-information" class="space-bottom">
 										<div class="row">
 											<div class="col-lg-3">
 												<h3 class="title">Personal Info</h3>
@@ -445,19 +445,19 @@
 												<div class="form-group">
 													<label for="shippingFirstName" class="col-md-2 control-label">First Name<small class="text-default">*</small></label>
 													<div class="col-md-10">
-														<input type="text" class="form-control" id="shippingFirstName" value="First Name" name="S_First_name">
+														<input type="text" class="form-control" id="shippingFirstName" value="First Name" name="s_first_name">
 													</div>
 												</div>
 												<div class="form-group">
 													<label for="shippingLastName" class="col-md-2 control-label">Last Name<small class="text-default">*</small></label>
 													<div class="col-md-10">
-														<input type="text" class="form-control" id="shippingLastName" value="Last Name" name="S_Last_name">
+														<input type="text" class="form-control" id="shippingLastName" value="Last Name" name="s_last_name">
 													</div>
 												</div>
 												<div class="form-group">
 													<label for="shippingTel" class="col-md-2 control-label">Telephone<small class="text-default">*</small></label>
 													<div class="col-md-10">
-														<input type="text" class="form-control" id="shippingTel" value="Telephone" name="S_Telephone">
+														<input type="text" class="form-control" id="shippingTel" value="Telephone" name="s_tel">
 													</div>
 												</div>
 												<!-- <div class="form-group">
@@ -469,7 +469,7 @@
 												<div class="form-group">
 													<label for="shippingemail" class="col-md-2 control-label">Email<small class="text-default">*</small></label>
 													<div class="col-md-10">
-														<input type="email" class="form-control" id="shippingemail" value="Email" name="S_Email">
+														<input type="email" class="form-control" id="shippingemail" value="Email" name="s_email">
 													</div>
 												</div>
 											</div>
@@ -483,19 +483,19 @@
 												<div class="form-group">
 													<label for="shippingAddress1" class="col-md-2 control-label">Address 1<small class="text-default">*</small></label>
 													<div class="col-md-10">
-														<input type="text" class="form-control" id="shippingAddress1" value="Address 1" name="S_Address_1">
+														<input type="text" class="form-control" id="shippingAddress1" value="Address 1" name="s_Address_1">
 													</div>
 												</div>
 												<div class="form-group">
 													<label for="shippingAddress2" class="col-md-2 control-label">Address 2</label>
 													<div class="col-md-10">
-														<input type="text" class="form-control" id="shippingAddress2" value="Address 2" name="S_Address_2">
+														<input type="text" class="form-control" id="shippingAddress2" value="Address 2" name="s_Address_2">
 													</div>
 												</div>
 												<div class="form-group">
 													<label class="col-md-2 control-label">Country<small class="text-default">*</small></label>
 													<div class="col-md-10">
-														<select class="form-control">
+														<select class="form-control" name="s_country">
 															<option value="AF">Afghanistan</option>
 															<option value="AX">Aland Islands</option>
 															<option value="AL">Albania</option>
@@ -752,33 +752,74 @@
 												<div class="form-group">
 													<label for="shippingCity" class="col-md-2 control-label">City<small class="text-default">*</small></label>
 													<div class="col-md-10">
-														<input type="text" class="form-control" id="shippingCity" value="City" name="S_City">
+														<input type="text" class="form-control" id="shippingCity" value="City" name="s_city">
 													</div>
 												</div>
 												<div class="form-group">
 													<label for="shippingPostalCode" class="col-md-2 control-label">Zip Code<small class="text-default">*</small></label>
 													<div class="col-md-10">
-														<input type="text" class="form-control" id="shippingPostalCode" value="Postal Code" name="S_Postal_code">
+														<input type="text" class="form-control" id="shippingPostalCode" value="Postal Code" name="s_postal_code">
 													</div>
 												</div>
 											</div>
 										</div>
 									</div>  
-									<div class="checkbox padding-top-clear">
+									<!-- <div class="checkbox padding-top-clear">
 										<label>
 											<input type="checkbox" id="shipping-info-check" checked="" name="shipping_info_check"> My Shipping information is the same as my Billing information.
 										</label>
-									</div>
-                                </form>
+									</div> -->
+                              
                                 
 							</fieldset>
+
+							<fieldset>
+								<legend>Payment</legend>
+								<div id="shipping-information" class="space-bottom">
+										<div class="row">
+											<div class="col-lg-3">
+												<h3 class="title">Please bank in to our account</h3>
+											</div>
+											<div class="col-lg-8 col-lg-offset-1">
+												<div class="form-group">
+													<label for="bankname" class="col-md-2 control-label">Bank Name<small class="text-default">*</small></label>
+													<div class="col-md-10">
+													<label for="bankname" class="form-control">Maybank</label>
+													</div>
+												</div>
+												<div class="form-group">
+													<label for="bankacc" class="col-md-2 control-label">Bank Account<small class="text-default">*</small></label>
+													<div class="col-md-10">
+													<label for="bankacc" class="form-control">12456465456456</label>
+														</div>
+												</div>
+												<div class="form-group">
+													<label for="bankaccname" class="col-md-2 control-label">Bank Account name<small class="text-default">*</small></label>
+													<div class="col-md-10">
+													<label for="bankaccname" class="form-control">Lebron James and Kobe Bryant</label>
+														</div>
+												</div>
+												<!-- <div class="form-group">
+													<label for="Uploadreceipt" class="col-md-2 control-label">Upload receipt<small class="text-default">*</small></label>
+													<div class="col-md-10">
+														<input type="file"  class="form-control" name="fileToUpload" id="fileToUpload">
+														</div>
+												</div> -->
+												
+											</div>
+										</div>
+									
+                                
+								</fieldset>
+
 							<div class="text-right">
-                                <a href="<?=base_url('shop_cart')?>" class="btn btn-group btn-default"><i class="icon-left-open-big"></i> Go Back To Cart</a>
-								<a id="checkout_detail"  href="javascript:;" onclick="submit_checkout('billing-information','shipping-information-container','cart-detail')"  class="btn btn-group btn-default">Next Step <i class="icon-right-open-big"></i></a>
-                                <!-- <input type="submit" form="billing-information,shipping-information" value="process to payment" class="btn btn-group btn-default"></i></input> -->
+                                <a href="<?=base_url('shopcart')?>" class="btn btn-group btn-default"><i class="icon-left-open-big"></i> Go Back To Cart</a>
+								<input type="submit" name="blank_order" id="blank_order" value="Continue">
 							</div>
 
 						</div>
+					
+					</form>
 						<!-- main end -->
 
 					</div>

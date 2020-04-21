@@ -85,12 +85,18 @@ $route['addcartAPI'] = 'frontend/addcartAPI';
 $route['removecartAPI'] = 'frontend/removecartAPI';
 $route['shopcart'] = 'frontend/shopcart';
 $route['shopcheckout'] = 'frontend/shopcheckout';
+$route['shopcheckoutreview'] = 'frontend/shopcheckoutreview';
+$route['morereview'] = 'frontend/morereview';
+$route['completeorder'] = 'frontend/completeorder';
 
 //wishlist
 $route['addwishlistAPI'] = 'frontend/addwishlistAPI';
 $route['wishlist'] = 'frontend/wishlist';
 $route['removewishlistAPI'] = 'frontend/removewishlistAPI';
 
+//testing
+$route['testing1'] = 'frontend/testing1';
+$route['testing2'] = 'frontend/testing2';
 
 $route['api/glogin']	 = 'api_login_manage/glogin';
 $route['api/flogin']	 = 'api_login_manage/flogin';

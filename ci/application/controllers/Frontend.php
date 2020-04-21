@@ -9,6 +9,8 @@ class Frontend extends CI_Controller{
         $this->load->model("Cart_model");
         $this->load->model("User_model");
         $this->load->model("Wishlist_model");
+        $this->load->model("Order_model");
+        $this->load->model("Orderitem_model");
         
         
         $sid = session_id();
@@ -195,6 +197,7 @@ class Frontend extends CI_Controller{
 
             $cart_id = $this->Cart_model->insert(array(
                 "sid"   =>$sid,
+                "user_id" => $this->data['user_id'],
                 "qty"   =>$qty,
                 "product_id"   =>$product_id,
                 "product_title"   =>$product_title,
@@ -503,6 +506,155 @@ class Frontend extends CI_Controller{
         $this->load->view("footer", $this->data);
     }
 
+    // public function morereview(){
+    //     $firstname = $this->input->post("B_First_Name" , true);
+    //     $submit = $this->input->post("submit" , true);
+
+    //     redirect(base_url('shopcheckoutreview'));
+ 
+    // }
+
+    public function shopcheckoutreview(){
+        $data = array(
+            'b_first_name' =>$this->input->post('b_first_name'),
+            'b_last_name' =>$this->input->post('b_last_name'),
+            'b_tel' =>$this->input->post('b_tel'),
+            'b_email' =>$this->input->post('b_email'),
+            'b_Address_1' =>$this->input->post('b_Address_1'),
+            'b_Address_2' =>$this->input->post('b_Address_2'),
+            'b_city' =>$this->input->post('b_city'),
+            'b_country' =>$this->input->post('b_country'),
+            'b_postal_code' =>$this->input->post('b_postal_code'),
+            'b_remarks' =>$this->input->post('b_remarks'),
+
+            's_first_name' =>$this->input->post('s_first_name'),
+            's_last_name' =>$this->input->post('s_last_name'),
+            's_tel' =>$this->input->post('s_tel'),
+            's_email' =>$this->input->post('s_email'),
+            's_Address_1' =>$this->input->post('s_Address_1'),
+            's_Address_2' =>$this->input->post('s_Address_2'),
+            's_city' =>$this->input->post('s_city'),
+            's_country' =>$this->input->post('s_country'),
+            's_postal_code' =>$this->input->post('s_postal_code'),
+
+            // 'fileToUpload' =>$this->input->post('fileToUpload')
+          
+               );
+
+               
+        $this->load->view("header", $this->data);
+        $this->load->view("shopcheckoutreview", $data);
+        $this->load->view("footer", $this->data);
+    }
+
+    public function completeorder(){
+        
+        
+
+     
+        $b_first_name          = $this->input->post('b_first_name', true); 
+        $b_last_name          = $this->input->post('b_last_name', true);
+        $b_tel =$this->input->post('b_tel',  true); 
+        $b_email =$this->input->post('b_email',  true); 
+        $b_Address_1 =$this->input->post('b_Address_1',  true); 
+        $b_Address_2 =$this->input->post('b_Address_2',  true); 
+        $b_city =$this->input->post('b_city', true); 
+        $b_country =$this->input->post('b_country',  true); 
+        $b_postal_code =$this->input->post('b_postal_code',  true); 
+        $b_remarks  =$this->input->post('b_remarks',  true); 
+
+        $s_first_name =$this->input->post('s_first_name' ,true); 
+        $s_last_name =$this->input->post('s_last_name' ,true); 
+        $s_tel =$this->input->post('s_tel' ,true); 
+        $s_email =$this->input->post('s_email' ,true); 
+        $s_Address_1 =$this->input->post('s_Address_1',true); 
+        $s_Address_2 =$this->input->post('s_Address_2',true); 
+        $s_city =$this->input->post('s_city',true); 
+        $s_country =$this->input->post('s_country',true); 
+        $s_postal_code =$this->input->post('s_postal_code',true); 
+
+        $total_amount =$this->input->post('total_amount',true); 
+        
+        $this->Order_model->insert(array(
+            'bill_firstname' => $b_first_name,
+            'bill_lastname' => $b_last_name,
+            'bill_tel' => $b_tel,
+            'bill_email' => $b_email,
+            'bill_address1' => $b_Address_1,
+            'bill_address2' => $b_Address_2,
+            'bill_city' => $b_city,
+            'bill_country' => $b_country,
+            'bill_zipcode' => $b_postal_code,
+            'bill_addinfo' => $b_remarks,
+            'ship_firstname' => $s_first_name,
+            'ship_lastname' => $s_last_name,
+            'ship_tel' => $s_tel,
+            'ship_email' => $s_email,
+            'ship_address1' => $s_Address_1,
+            'ship_address2' => $s_Address_2,
+            'ship_city' => $s_city,
+            'ship_country' => $s_country,
+            'ship_zipcode' => $s_postal_code,
+            'payment_totalamount' => $total_amount,
+            'created_date' => date("Y-m-d H:i:s"),
+        ));
+
+        // $this->Orderitem_model->insert(array(
+        //     'bill_firstname' => $b_first_name,
+        //     'bill_lastname' => $b_last_name,
+        //     'bill_tel' => $b_tel,
+        //     'bill_email' => $b_email,
+        //     'bill_address1' => $b_Address_1,
+        //     'bill_address2' => $b_Address_2,
+        //     'bill_city' => $b_city,
+        //     'bill_country' => $b_country,
+        //     'bill_zipcode' => $b_postal_code,
+        //     'bill_addinfo' => $b_remarks,
+        //     'ship_firstname' => $s_first_name,
+        //     'ship_lastname' => $s_last_name,
+        //     'ship_tel' => $s_tel,
+        //     'ship_email' => $s_email,
+        //     'ship_address1' => $s_Address_1,
+        //     'ship_address2' => $s_Address_2,
+        //     'ship_city' => $s_city,
+        //     'ship_country' => $s_country,
+        //     'ship_zipcode' => $s_postal_code,
+        //     'payment_totalamount' => $total_amount,
+        //     'created_date' => date("Y-m-d H:i:s"),
+        // ));
+    
+
+        // $data = array(
+        //     'b_first_name' =>$this->input->post('b_first_name'),
+        //     'b_last_name' =>$this->input->post('b_last_name'),
+        //     'b_tel' =>$this->input->post('b_tel'),
+        //     'b_email' =>$this->input->post('b_email'),
+        //     'b_Address_1' =>$this->input->post('b_Address_1'),
+        //     'b_Address_2' =>$this->input->post('b_Address_2'),
+        //     'b_city' =>$this->input->post('b_city'),
+        //     'b_country' =>$this->input->post('b_country'),
+        //     'b_postal_code' =>$this->input->post('b_postal_code'),
+        //     'b_remarks' =>$this->input->post('b_remarks'),
+
+        //     's_first_name' =>$this->input->post('s_first_name'),
+        //     's_last_name' =>$this->input->post('s_last_name'),
+        //     's_tel' =>$this->input->post('s_tel'),
+        //     's_email' =>$this->input->post('s_email'),
+        //     's_Address_1' =>$this->input->post('s_Address_1'),
+        //     's_Address_2' =>$this->input->post('s_Address_2'),
+        //     's_city' =>$this->input->post('s_city'),
+        //     's_country' =>$this->input->post('s_country'),
+        //     's_postal_code' =>$this->input->post('s_postal_code'),
+
+            // 'fileToUpload' =>$this->input->post('fileToUpload')
+          
+            //    );
+
+               
+        $this->load->view("header", $this->data);
+        $this->load->view("completeorder",$this->data);
+        $this->load->view("footer", $this->data);
+    }
 
     public function wishlist(){
 
@@ -510,6 +662,20 @@ class Frontend extends CI_Controller{
         $this->load->view("wishlist", $this->data);
         $this->load->view("footer", $this->data);
     }
+
+    public function testing1(){
+        $this->load->view('header', $this->data);
+        $this->load->view("testing1", $this->data);
+        $this->load->view("footer", $this->data);
+    }
+
+    function testing2() 
+  {
+     $data = array(
+    'customer' =>$this->input->post('customer')
+       );
+      $this->load->view('testing2',$data);
+  }
 }
 
 

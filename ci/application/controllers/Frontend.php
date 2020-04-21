@@ -574,8 +574,9 @@ class Frontend extends CI_Controller{
         $s_postal_code =$this->input->post('s_postal_code',true); 
 
         $total_amount =$this->input->post('total_amount',true); 
-        
-        $this->Order_model->insert(array(
+        // $orderid =
+         $this->Order_model->insert(array(
+
             'bill_firstname' => $b_first_name,
             'bill_lastname' => $b_last_name,
             'bill_tel' => $b_tel,
@@ -599,8 +600,12 @@ class Frontend extends CI_Controller{
             'created_date' => date("Y-m-d H:i:s"),
         ));
 
-        // $this->Orderitem_model->insert(array(
-        //     'bill_firstname' => $b_first_name,
+        // foreach {
+        //     // $this->Orderitem_model->insert(array(
+        //         'oid'
+        // //     'bill_firstname' => $b_first_name,
+        // }
+        
         //     'bill_lastname' => $b_last_name,
         //     'bill_tel' => $b_tel,
         //     'bill_email' => $b_email,

@@ -94,9 +94,8 @@ $route['addwishlistAPI'] = 'frontend/addwishlistAPI';
 $route['wishlist'] = 'frontend/wishlist';
 $route['removewishlistAPI'] = 'frontend/removewishlistAPI';
 
-//testing
-$route['testing1'] = 'frontend/testing1';
-$route['testing2'] = 'frontend/testing2';
+//myorder
+$route['myorder'] = 'frontend/myorder';
 
 $route['api/glogin']	 = 'api_login_manage/glogin';
 $route['api/flogin']	 = 'api_login_manage/flogin';

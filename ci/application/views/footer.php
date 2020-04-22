@@ -191,12 +191,12 @@
 		
 			function addCartAjax(pid){
 
-				$.post("<?=base_url('addcartAPI')?>", {qty:1,product_id:pid}, function(result){
+				$.post("<?=base_url('addcartAPI')?>", {qty:1,product_id:prid}, function(result){
 
 					// console.log(result);
 					result = JSON.parse(result); 
 					if(result.status =="ok"){
-						alert("Add cacrt successfuly");
+						// alert("Add cacrt successfuly");
 					}else{
 						alert("something Wrong");
 					}
@@ -227,46 +227,6 @@
 				
 				}
 
-				function addwishAjax(pid){
-
-					$.post("<?=base_url('addwishlistAPI')?>", {product_id:pid}, function(result){
-
-						console.log(result);
-						result = JSON.parse(result); 
-						if(result.status =="ok"){
-							alert("Add wishlist successfuly");
-							console.log("Add wishlist successfuly");
-						}else{
-							alert("something Wrong");
-						}
-
-				// 		document.getElementById("mini_wishlist").innerHTML = result.wishqty;
-
-				// 	// //the wishlist dropdown table content
-				// 	var markup 	 = "";
- 
-
-
-				// 	for (i = 0; i < result.wishData.length; i++) { 
-				// 		var href = "<?=base_url('product_detail/')?>"+result.wishData[i]["product_id"];
-				// 		markup += "<tr><td class='quantity'>"+result.wishData[i]["qty"]+" x</td><td class='product'><a href="+href+">" + result.wishData[i]["product_title"] + "</a></td><td class='amount'>$" + (result.wishData[i]["qty"]*result.wishData[i]["product_price"]).toFixed(2) + "</td></tr>";
-				// 	}
-				// 	markup += "<td class='total-quantity' colspan='2'>Total " + result.wishQty + " Items</td><td>$" + result.total_price + "</td></tr>";
-
-
-				// 	var table = document.getElementById("wishlist");
-				// 	// or use :  var table = document.all.tableid;
-				// 	for(var i = table.rows.length - 1; i > 0; i--)
-				// 	{
-				// 		table.deleteRow(i);
-				// 	}
-				// 	$("#wishlist tbody").append(markup);
-					
-			
-				 
-			});
-				
-			}
 			function removeCartAjax(cid){
 				console.log(cid);
 

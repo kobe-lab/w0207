@@ -168,7 +168,7 @@
 														<a class="dropdown-toggle" data-toggle="dropdown"><?=$userdata['fullname']?></a>
 														<ul class="dropdown-menu">
 															<li ><a href="template/index-shop.html">Shop Home 1</a></li>
-															<li ><a href="template/index-shop-2.html">Shop Home 2</a></li>
+															<li ><a href="<?=base_url('myorder')?>">Myorder History</a></li>
 															<li ><a href="<?=base_url('useredit')?>">Edit Profile</a></li>
 															<li ><a href="<?=base_url('userlogout')?>"><strong>Logout</strong></a></li>
 														</ul>
@@ -291,7 +291,7 @@
 																</table>
 																<div class="panel-body text-right">
 																	<a href="<?=base_url('shopcart')?>" class="btn btn-group btn-gray btn-sm">View Cart</a>
-																	<a href="shop-checkout.html" class="btn btn-group btn-gray btn-sm">Checkout</a>
+																	<a href="<?=base_url('shopcheckout')?>" class="btn btn-group btn-gray btn-sm">Checkout</a>
 																</div>
 															</li>
 														</ul>

@@ -4,7 +4,7 @@
 				<div class="container">
 					<ol class="breadcrumb">
 						<li><i class="fa fa-home pr-10"></i><a href="index.html">Home</a></li>
-						<li class="active">Checkout Review</li>
+						<li class="active">Myorder History</li>
 					</ol>
 				</div>
 			</div>
@@ -23,169 +23,50 @@
 
 							<!-- page-title start -->
 							<!-- ================ -->
-							<h1 class="page-title">Checkout Review</h1>
+							<h1 class="page-title">Myorder History</h1>
 							<div class="separator-2"></div>
 							<!-- page-title end -->
 							<form action="<?=base_url('completeorder')?>" method="POST" role="form" class="form-horizontal" id="completeorder">
 							<table class="table cart">
 								<thead>
 									<tr>
-										<th>Product </th>
-										<th>Price </th>
-										<th>Quantity</th>
+										<th>Order Number </th>
+										<th>Billing Adress </th>
+										<th>Shipping Address</th>
 										<th class="amount">Total </th>
 									</tr>
 								</thead>
 								<tbody>
                                 <?php
-                            $total_amount = 0;
-                            $total_qty = 0;
-                            if(!empty($cartList))
+                           
+                            if(!empty($myOrder))
                             {
-                                foreach($cartList as $v)
+                                foreach($myOrder as $v)
                                 {
                             ?>
 								<tr class="remove-data">
-											<td class="product"><a href="shop-product.html"><?=$v['product_title']?></a> <small>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas inventore modi.</small></td>
-											<td class="price">RM<?=$v['product_price']?></td>
-											<td class="quantity">
-												<div class="form-group">
-													<input type="text" class="form-control" value="<?=$v['qty']?>" name="qty[]" disabled>
-													<input type="hidden" class="form-control" value="<?=$v['id']?>" name="cart_id[]">
-													<input type="hidden" class="form-control" value="<?=$v['product_price']?>" name="product_price[]">
-													<input type="hidden" class="form-control" value="<?=$v['product_title']?>" name="product_title[]">
-												</div>											
+											<td class="product"><a href="shop-product.html"><?=$v['id']?></a></td>
+											<td class="price"><?=$v['bill_firstname']?></td>
+											<td class="quantity">				
 											</td>
 											<!-- <td class="remove"><a class="btn btn-remove btn-sm btn-default">Remove</a></td> -->
-											<td class="amount">RM<?=$v['product_price']*$v['qty']?> </td>
-											
+										
 										</tr>
 										
                                     <?php
-                                            $total_qty    += $v['qty'];
-											$total_amount += $v['product_price']*$v['qty'];
+                                          
 											}
 										}
 									
 									?>
-										
-										
-
-										<tr>
-											<td class="total-quantity" colspan="3">Subtotal</td>
-											<td class="amount">RM<?=$total_amount?></td>
-										</tr>
-										
-
-										<tr>										
-											<td class="total-quantity" colspan="2">Discount Coupon</td>
-											<!-- <td class="price">TheProject25672</td>
-											<td class="amount">-20%</td> -->
-											<td class="price"></td>
-											<td class="amount"></td>
-										</tr>
-										<tr>
-											<td class="total-quantity" colspan="3">Total <?=$total_qty?> Items</td>
-											<td class="total-amount">RM<?=$total_amount?>
-											<input type="hidden"  id="total_amount" value="<?=$total_amount?>" name="total_amount"></td>
-											<!-- <input type="hidden" class="form-control" value="<?=$product_total_amount?>" name="cart_Total"> -->
-										</tr>
+								
 									</tbody>
 								</table>
-							<div class="space-bottom"></div>
+						
 							
-							<table class="table">
-								<thead>
-									<tr>
-										<th colspan="2">Billing Information </th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>Full Name</td>
-										<td class="information"><?=$b_first_name.$b_last_name?> 
-										<input type="hidden"  id="b_first_name" value="<?=$b_first_name?> " name="b_first_name">
-										<input type="hidden"  id="b_last_name" value="<?=$b_last_name?>" name="b_last_name"></td>
-									</tr>
-									<tr>
-										<td>Email</td>
-										<td class="information"><?=$b_email?>
-										<input type="hidden"  id="b_email" value="<?=$b_email?> " name="b_email"> </td>
-									</tr>
-									<tr>
-										<td>Telephone</td>
-										<td class="information"><?=$b_tel?>
-										<input type="hidden"  id="b_tel" value="<?=$b_tel?> " name="b_tel"></td>
-									</tr>
-									<tr>
-										<td>Address</td>
-										<td class="information"><?=$b_Address_1.$b_Address_2.$b_city.$b_postal_code.$b_country?>
-										<input type="hidden"  id="b_Address_1" value="<?=$b_Address_1?> " name="b_Address_1">
-										<input type="hidden"  id="b_Address_2" value="<?=$b_Address_2?> " name="b_Address_2">
-										<input type="hidden"  id="b_city" value="<?=$b_city?> " name="b_city">
-										<input type="hidden"  id="b_postal_code" value="<?=$b_postal_code?> " name="b_postal_code">
-										<input type="hidden"  id="b_country" value="<?=$b_country?> " name="b_country"></td>
-									</tr>
-									<tr>
-										<td>Additional Info</td>
-										<td class="information"><?=$b_remarks?>
-										<input type="hidden"  id="b_remarks" value="<?=$b_remarks?> " name="b_remarks"></td>
-									</tr>
-								</tbody>
-							</table>
-							<div class="space-bottom"></div>
-							<table class="table">
-								<thead>
-									<tr>
-										<th colspan="2">Shipping Information </th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>Full Name</td>
-										<td class="information"><?=$s_first_name.$s_last_name?>
-										<input type="hidden"  id="s_first_name" value="<?=$s_first_name?> " name="s_first_name">
-										<input type="hidden"  id="s_last_name" value="<?=$s_last_name?>" name="s_last_name"></td>
-									</tr>
-									<tr>
-										<td>Email</td>
-										<td class="information"><?=$s_email?>
-										<input type="hidden"  id="s_email" value="<?=$s_email?> " name="s_email"></td>
-									</tr>
-									<tr>
-										<td>Telephone</td>
-										<td class="information"><?=$s_tel?>
-										<input type="hidden"  id="s_tel" value="<?=$s_tel?> " name="s_tel"></td>
-									</tr>
-									<tr>
-										<td>Address</td>
-										<td class="information"><?=$s_Address_1.$s_Address_2.$s_city.$s_postal_code.$s_country?>
-										<input type="hidden"  id="s_Address_1" value="<?=$s_Address_1?> " name="s_Address_1">
-										<input type="hidden"  id="s_Address_2" value="<?=$s_Address_2?> " name="s_Address_2">
-										<input type="hidden"  id="s_city" value="<?=$s_city?> " name="s_city">
-										<input type="hidden"  id="s_postal_code" value="<?=$s_postal_code?> " name="s_postal_code">
-										<input type="hidden"  id="s_country" value="<?=$s_country?> " name="s_country"></td>
-									</tr>
-								</tbody>
-							</table>
-							<div class="space-bottom"></div>
-							<table class="table">
-								<thead>
-									<tr>
-										<th colspan="2">Payment </th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>Credit Card</td>
-										<td class="information">Visa ***917 </td>
-									</tr>
-								</tbody>
-							</table>
-							<div class="text-right">	
-								<a href="<?=base_url('shopcheckout')?>" class="btn btn-group btn-default"><i class="icon-left-open-big"></i> Go Back</a>
-								<input type="submit" name="blank_order" id="blank_order" value="Continue">
-							</div>
+						
+						
+					
 							</form>
 						</div>
 						<!-- main end -->

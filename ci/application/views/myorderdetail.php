@@ -56,17 +56,49 @@
 										}
 									
 									?>
-								
 									</tbody>
 								</table>
-						
-							
-						
-						
-				
 						</div>
 						<!-- main end -->
+						
 
+						<fieldset>
+								<div id="shipping-information" class="space-bottom">
+										<div class="row">
+											<div class="col-lg-3">
+												<h3 class="title">Please bank in to our account</h3>
+											</div>
+											<div class="col-lg-8 col-lg-offset-1">
+												<div class="form-group">
+													<label for="bankname" class="col-md-2 control-label">Bank Name<small class="text-default">*</small></label>
+													<div class="col-md-10">
+													<label for="bankname" class="form-control">Maybank</label>
+													</div>
+												</div>
+												<div class="form-group">
+													<label for="bankacc" class="col-md-2 control-label">Bank Account<small class="text-default">*</small></label>
+													<div class="col-md-10">
+													<label for="bankacc" class="form-control">12456465456456</label>
+														</div>
+												</div>
+												<div class="form-group">
+													<label for="bankaccname" class="col-md-2 control-label">Bank Acc<small class="text-default">*</small></label>
+													<div class="col-md-10">
+													<label for="bankaccname" class="form-control">Lebron James and Kobe Bryant</label>
+														</div>
+												</div>
+												<div class="form-group">
+													<label for="Uploadreceipt" class="col-md-2 control-label">Upload receipt<small class="text-default">*</small></label>
+													<div class="col-md-10">
+														<input type="file"  class="form-control" name="fileToUpload" id="fileToUpload">
+														</div>
+												</div>
+												
+											</div>
+										</div>
+									
+                                
+								</fieldset>
 					</div>
 				</div>
 			</section>

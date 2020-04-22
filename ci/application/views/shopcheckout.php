@@ -460,16 +460,10 @@
 														<input type="text" class="form-control" id="shippingTel" value="Telephone" name="s_tel">
 													</div>
 												</div>
-												<!-- <div class="form-group">
-													<label for="shippingFax" class="col-md-2 control-label">Fax</label>
-													<div class="col-md-10">
-														<input type="text" class="form-control" id="shippingFax" value="Fax">
-													</div>
-												</div> -->
 												<div class="form-group">
 													<label for="shippingemail" class="col-md-2 control-label">Email<small class="text-default">*</small></label>
 													<div class="col-md-10">
-														<input type="email" class="form-control" id="shippingemail" value="Email" name="s_email">
+														<input type="text" class="form-control" id="shippingemail" value="Email" name="s_email">
 													</div>
 												</div>
 											</div>
@@ -764,54 +758,12 @@
 											</div>
 										</div>
 									</div>  
-									<!-- <div class="checkbox padding-top-clear">
+									 <div class="checkbox padding-top-clear">
 										<label>
 											<input type="checkbox" id="shipping-info-check" checked="" name="shipping_info_check"> My Shipping information is the same as my Billing information.
 										</label>
-									</div> -->
-                              
-                                
-							</fieldset>
-
-							<fieldset>
-								<legend>Payment</legend>
-								<div id="shipping-information" class="space-bottom">
-										<div class="row">
-											<div class="col-lg-3">
-												<h3 class="title">Please bank in to our account</h3>
-											</div>
-											<div class="col-lg-8 col-lg-offset-1">
-												<div class="form-group">
-													<label for="bankname" class="col-md-2 control-label">Bank Name<small class="text-default">*</small></label>
-													<div class="col-md-10">
-													<label for="bankname" class="form-control">Maybank</label>
-													</div>
-												</div>
-												<div class="form-group">
-													<label for="bankacc" class="col-md-2 control-label">Bank Account<small class="text-default">*</small></label>
-													<div class="col-md-10">
-													<label for="bankacc" class="form-control">12456465456456</label>
-														</div>
-												</div>
-												<div class="form-group">
-													<label for="bankaccname" class="col-md-2 control-label">Bank Account name<small class="text-default">*</small></label>
-													<div class="col-md-10">
-													<label for="bankaccname" class="form-control">Lebron James and Kobe Bryant</label>
-														</div>
-												</div>
-												<!-- <div class="form-group">
-													<label for="Uploadreceipt" class="col-md-2 control-label">Upload receipt<small class="text-default">*</small></label>
-													<div class="col-md-10">
-														<input type="file"  class="form-control" name="fileToUpload" id="fileToUpload">
-														</div>
-												</div> -->
-												
-											</div>
-										</div>
-									
-                                
-								</fieldset>
-
+									</div> 
+									</fieldset>
 							<div class="text-right">
                                 <a href="<?=base_url('shopcart')?>" class="btn btn-group btn-default"><i class="icon-left-open-big"></i> Go Back To Cart</a>
 								<input type="submit" name="blank_order" id="blank_order" value="Continue">

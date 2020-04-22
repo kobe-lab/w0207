@@ -523,31 +523,59 @@ class Frontend extends CI_Controller{
     // }
 
     public function shopcheckoutreview(){
-        $data = array(
-            'b_first_name' =>$this->input->post('b_first_name'),
-            'b_last_name' =>$this->input->post('b_last_name'),
-            'b_tel' =>$this->input->post('b_tel'),
-            'b_email' =>$this->input->post('b_email'),
-            'b_Address_1' =>$this->input->post('b_Address_1'),
-            'b_Address_2' =>$this->input->post('b_Address_2'),
-            'b_city' =>$this->input->post('b_city'),
-            'b_country' =>$this->input->post('b_country'),
-            'b_postal_code' =>$this->input->post('b_postal_code'),
-            'b_remarks' =>$this->input->post('b_remarks'),
+        $shipping_info_check = $this->input->post("shipping_info_check", true);
 
-            's_first_name' =>$this->input->post('s_first_name'),
-            's_last_name' =>$this->input->post('s_last_name'),
-            's_tel' =>$this->input->post('s_tel'),
-            's_email' =>$this->input->post('s_email'),
-            's_Address_1' =>$this->input->post('s_Address_1'),
-            's_Address_2' =>$this->input->post('s_Address_2'),
-            's_city' =>$this->input->post('s_city'),
-            's_country' =>$this->input->post('s_country'),
-            's_postal_code' =>$this->input->post('s_postal_code'),
+        
+        if (empty($shipping_info_check)) { 
+            $data = array(
+                'b_first_name' =>$this->input->post('b_first_name'),
+                'b_last_name' =>$this->input->post('b_last_name'),
+                'b_tel' =>$this->input->post('b_tel'),
+                'b_email' =>$this->input->post('b_email'),
+                'b_Address_1' =>$this->input->post('b_Address_1'),
+                'b_Address_2' =>$this->input->post('b_Address_2'),
+                'b_city' =>$this->input->post('b_city'),
+                'b_country' =>$this->input->post('b_country'),
+                'b_postal_code' =>$this->input->post('b_postal_code'),
+                'b_remarks' =>$this->input->post('b_remarks'),
+    
+                's_first_name' =>$this->input->post('s_first_name'),
+                's_last_name' =>$this->input->post('s_last_name'),
+                's_tel' =>$this->input->post('s_tel'),
+                's_email' =>$this->input->post('s_email'),
+                's_Address_1' =>$this->input->post('s_Address_1'),
+                's_Address_2' =>$this->input->post('s_Address_2'),
+                's_city' =>$this->input->post('s_city'),
+                's_country' =>$this->input->post('s_country'),
+                's_postal_code' =>$this->input->post('s_postal_code'),
+                   );
+        
+        }else{
+            $data = array(
+                'b_first_name' =>$this->input->post('b_first_name'),
+                'b_last_name' =>$this->input->post('b_last_name'),
+                'b_tel' =>$this->input->post('b_tel'),
+                'b_email' =>$this->input->post('b_email'),
+                'b_Address_1' =>$this->input->post('b_Address_1'),
+                'b_Address_2' =>$this->input->post('b_Address_2'),
+                'b_city' =>$this->input->post('b_city'),
+                'b_country' =>$this->input->post('b_country'),
+                'b_postal_code' =>$this->input->post('b_postal_code'),
+                'b_remarks' =>$this->input->post('b_remarks'),
+    
+                's_first_name' =>$this->input->post('b_first_name'),
+                's_last_name' =>$this->input->post('b_last_name'),
+                's_tel' =>$this->input->post('b_tel'),
+                's_email' =>$this->input->post('b_email'),
+                's_Address_1' =>$this->input->post('b_Address_1'),
+                's_Address_2' =>$this->input->post('b_Address_2'),
+                's_city' =>$this->input->post('b_city'),
+                's_country' =>$this->input->post('b_country'),
+                's_postal_code' =>$this->input->post('b_postal_code'),
+                   );
+        }
 
-            // 'fileToUpload' =>$this->input->post('fileToUpload')
-          
-               );
+       
 
                
         $this->load->view("header", $this->data);

@@ -39,7 +39,7 @@ class MY_Model extends CI_Model{
         return $query->row_array(); //return associative array
     }
 
-
+   
 
 
     //SELECT * FROM product WHERE featured = 1

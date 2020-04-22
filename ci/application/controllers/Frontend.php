@@ -52,12 +52,11 @@ class Frontend extends CI_Controller{
                 'id' => $user_id,
             ));
         
-
+     
         $this->data['myOrder'] = $this->Order_model->get_where(array(
-            'user_id' => $user_id,
-        ));
-
-        
+                'user_id' => $user_id,
+            ));
+     
     }
 
   
@@ -668,6 +667,19 @@ class Frontend extends CI_Controller{
 
         $this->load->view("header", $this->data);
         $this->load->view("myorder", $this->data);
+        $this->load->view("footer", $this->data);
+    }
+
+ 
+    public function myorderdetail($oid){
+
+        $this->data['myOrderdetail'] = $this->Orderitem_model->get_where(array(
+            'oid' =>$oid,
+        ));
+
+
+        $this->load->view("header", $this->data);
+        $this->load->view("myorderdetail", $this->data);
         $this->load->view("footer", $this->data);
     }
 }

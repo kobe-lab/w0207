@@ -26,14 +26,14 @@
 							<h1 class="page-title">Myorder History</h1>
 							<div class="separator-2"></div>
 							<!-- page-title end -->
-							<form action="<?=base_url('completeorder')?>" method="POST" role="form" class="form-horizontal" id="completeorder">
+						
 							<table class="table cart">
 								<thead>
 									<tr>
 										<th>Order Number </th>
 										<th>Billing Adress </th>
 										<th>Shipping Address</th>
-										<th class="amount">Total </th>
+										<th>Place Order Date</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -45,12 +45,10 @@
                                 {
                             ?>
 								<tr class="remove-data">
-											<td class="product"><a href="shop-product.html"><?=$v['id']?></a></td>
-											<td class="price"><?=$v['bill_firstname']?></td>
-											<td class="quantity">				
-											</td>
-											<!-- <td class="remove"><a class="btn btn-remove btn-sm btn-default">Remove</a></td> -->
-										
+											<td class="ordernumber"><a href="<?=base_url('myorderdetail/'.$v['id'])?>"><?=$v['id']?></a></td>
+											<td class="billingaddress"><?=$v['bill_firstname'].$v['bill_lastname']."<br>".$v['bill_tel']."<br>".$v['bill_email']."<br>".$v['bill_address1'].$v['bill_address2'].$v['bill_zipcode'].$v['bill_city'].$v['bill_country']?></td>
+											<td class="shippingaddress"><?=$v['ship_firstname'].$v['ship_lastname']."<br>".$v['ship_tel']."<br>".$v['ship_email']."<br>".$v['ship_address1'].$v['ship_address2'].$v['ship_zipcode'].$v['ship_city'].$v['ship_country']?></td>				
+											<td class="placeorderdate"><?=$v['created_date']?></td>
 										</tr>
 										
                                     <?php

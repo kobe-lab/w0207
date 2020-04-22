@@ -169,19 +169,6 @@
 								</tbody>
 							</table>
 							<div class="space-bottom"></div>
-							<table class="table">
-								<thead>
-									<tr>
-										<th colspan="2">Payment </th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>Credit Card</td>
-										<td class="information">Visa ***917 </td>
-									</tr>
-								</tbody>
-							</table>
 							<div class="text-right">	
 								<a href="<?=base_url('shopcheckout')?>" class="btn btn-group btn-default"><i class="icon-left-open-big"></i> Go Back</a>
 								<input type="submit" name="blank_order" id="blank_order" value="Continue">

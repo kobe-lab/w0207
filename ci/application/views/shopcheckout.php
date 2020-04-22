@@ -137,13 +137,13 @@
 											<div class="form-group">
 												<label for="billingAddress1" class="col-md-2 control-label">Address 1<small class="text-default">*</small></label>
 												<div class="col-md-10">
-													<input type="text" class="form-control" id="billingAddress1" value="Address 1" name="b_Address_1">
+													<input type="text" class="form-control" id="billingAddress1" placeholder="Address 1" name="b_Address_1">
 												</div>
 											</div>
 											<div class="form-group">
 												<label for="billingAddress2" class="col-md-2 control-label">Address 2</label>
 												<div class="col-md-10">
-													<input type="text" class="form-control" id="billingAddress2" value="Address 2" name="b_Address_2">
+													<input type="text" class="form-control" id="billingAddress2" placeholder="Address 2" name="b_Address_2">
 												</div>
 											</div>
 											<div class="form-group">
@@ -406,13 +406,13 @@
 											<div class="form-group">
 												<label for="billingCity" class="col-md-2 control-label">City<small class="text-default">*</small></label>
 												<div class="col-md-10">
-													<input type="text" class="form-control" id="billingCity" value="City" name="b_city">
+													<input type="text" class="form-control" id="billingCity" placeholder="City" name="b_city">
 												</div>
 											</div>
 											<div class="form-group">
 												<label for="billingPostalCode" class="col-md-2 control-label">Zip Code<small class="text-default">*</small></label>
 												<div class="col-md-10">
-													<input type="text" class="form-control" id="billingPostalCode" value="Postal Code" name="b_postal_code">
+													<input type="text" class="form-control" id="billingPostalCode" placeholder="Postal Code" name="b_postal_code">
 												</div>
 											</div>
 										</div>
@@ -445,25 +445,25 @@
 												<div class="form-group">
 													<label for="shippingFirstName" class="col-md-2 control-label">First Name<small class="text-default">*</small></label>
 													<div class="col-md-10">
-														<input type="text" class="form-control" id="shippingFirstName" value="First Name" name="s_first_name">
+														<input type="text" class="form-control" id="shippingFirstName" placeholder="First Name" name="s_first_name">
 													</div>
 												</div>
 												<div class="form-group">
 													<label for="shippingLastName" class="col-md-2 control-label">Last Name<small class="text-default">*</small></label>
 													<div class="col-md-10">
-														<input type="text" class="form-control" id="shippingLastName" value="Last Name" name="s_last_name">
+														<input type="text" class="form-control" id="shippingLastName" placeholder="Last Name" name="s_last_name">
 													</div>
 												</div>
 												<div class="form-group">
 													<label for="shippingTel" class="col-md-2 control-label">Telephone<small class="text-default">*</small></label>
 													<div class="col-md-10">
-														<input type="text" class="form-control" id="shippingTel" value="Telephone" name="s_tel">
+														<input type="text" class="form-control" id="shippingTel" placeholder="Telephone" name="s_tel">
 													</div>
 												</div>
 												<div class="form-group">
 													<label for="shippingemail" class="col-md-2 control-label">Email<small class="text-default">*</small></label>
 													<div class="col-md-10">
-														<input type="text" class="form-control" id="shippingemail" value="Email" name="s_email">
+														<input type="text" class="form-control" id="shippingemail" placeholder="Email" name="s_email">
 													</div>
 												</div>
 											</div>
@@ -477,13 +477,13 @@
 												<div class="form-group">
 													<label for="shippingAddress1" class="col-md-2 control-label">Address 1<small class="text-default">*</small></label>
 													<div class="col-md-10">
-														<input type="text" class="form-control" id="shippingAddress1" value="Address 1" name="s_Address_1">
+														<input type="text" class="form-control" id="shippingAddress1" placeholder="Address 1" name="s_Address_1">
 													</div>
 												</div>
 												<div class="form-group">
 													<label for="shippingAddress2" class="col-md-2 control-label">Address 2</label>
 													<div class="col-md-10">
-														<input type="text" class="form-control" id="shippingAddress2" value="Address 2" name="s_Address_2">
+														<input type="text" class="form-control" id="shippingAddress2" placeholder="Address 2" name="s_Address_2">
 													</div>
 												</div>
 												<div class="form-group">
@@ -746,13 +746,13 @@
 												<div class="form-group">
 													<label for="shippingCity" class="col-md-2 control-label">City<small class="text-default">*</small></label>
 													<div class="col-md-10">
-														<input type="text" class="form-control" id="shippingCity" value="City" name="s_city">
+														<input type="text" class="form-control" id="shippingCity" placeholder="City" name="s_city">
 													</div>
 												</div>
 												<div class="form-group">
 													<label for="shippingPostalCode" class="col-md-2 control-label">Zip Code<small class="text-default">*</small></label>
 													<div class="col-md-10">
-														<input type="text" class="form-control" id="shippingPostalCode" value="Postal Code" name="s_postal_code">
+														<input type="text" class="form-control" id="shippingPostalCode" placeholder="Postal Code" name="s_postal_code">
 													</div>
 												</div>
 											</div>

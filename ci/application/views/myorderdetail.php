@@ -30,10 +30,10 @@
 							<table class="table cart">
 								<thead>
 									<tr>
-										<th>Order Number </th>
+                                        <th>Quantity</th>
 										<th>Product Title </th>
 										<th>Product Price</th>
-										<th>Quantity</th>
+								
 									</tr>
 								</thead>
 								<tbody>
@@ -45,10 +45,9 @@
                                 {
                             ?>
 								<tr class="remove-data">
-											<td class="ordernumber"><?=$v['oid']?></a></td>
+                                            <td class="quantity"><?=$v['qty']?></td>
 											<td class="billingaddress"><?=$v['product_title']?></td>
                                             <td class="billingaddress"><?=$v['product_price']?></td>
-											<td class="placeorderdate"><?=$v['qty']?></td>
 										</tr>
 										
                                     <?php

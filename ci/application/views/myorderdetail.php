@@ -62,22 +62,91 @@
 						</div>
 						<!-- main end -->
 					
+				<fieldset>
 				
-					<div class="form-group row">
-							<div class="col-sm-2 control-label">image</div>
-								<div class="col-sm-6">
-										<input type="file" name="m_img" required accept="image/*">
-									
-								</div>
+				<div class="row">
+				
+					<div class="col-lg-8 col-lg-offset-1">
+							<div >
+								<label for="Bank" >Bank:  Maybank</label>
+							</div>
+							<div >
+								<label for="Bankacc">Bank Account:  123456789</label>
+							</div>
+							<div >
+								<label for="Bank" >Name:  Lebron</label>
+							</div>
+							<div >
+								<label for="image">Upload receipt:  </label> <input type="file" name="m_img" required accept="image/*">
+							</div>
+							<div>
+								<button type="submit" class="btn btn-primary">Upload</button>	
+							</div>
 					</div>
-
-					<button type="submit" class="btn btn-primary">Upload</button>
+				</div>
+				</fieldset>
 					</form>
-				
 				
 					</div>
 				</div>
 			</section>
+
+
+			<fieldset>
+								<legend>Shipping information</legend>
+								<div id="shipping-information" class="space-bottom">
+										<div class="row">
+											<div class="col-lg-3">
+												<h3 class="title">Personal Info</h3>
+											</div>
+											<div class="col-lg-8 col-lg-offset-1">
+												<div class="form-group">
+													<label for="shippingFirstName" class="col-md-2 control-label">First Name<small class="text-default">*</small></label>
+													<div class="col-md-10">
+														<input type="text" class="form-control" id="shippingFirstName" placeholder="First Name" name="s_first_name">
+													</div>
+												</div>
+												<div class="form-group">
+													<label for="shippingLastName" class="col-md-2 control-label">Last Name<small class="text-default">*</small></label>
+													<div class="col-md-10">
+														<input type="text" class="form-control" id="shippingLastName" placeholder="Last Name" name="s_last_name">
+													</div>
+												</div>
+												<div class="form-group">
+													<label for="shippingTel" class="col-md-2 control-label">Telephone<small class="text-default">*</small></label>
+													<div class="col-md-10">
+														<input type="text" class="form-control" id="shippingTel" placeholder="Telephone" name="s_tel">
+													</div>
+												</div>
+												<div class="form-group">
+													<label for="shippingemail" class="col-md-2 control-label">Email<small class="text-default">*</small></label>
+													<div class="col-md-10">
+														<input type="text" class="form-control" id="shippingemail" placeholder="Email" name="s_email">
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="space"></div>
+										<div class="row">
+											<div class="col-lg-3">
+												<h3 class="title">Your Address</h3>
+											</div>
+											<div class="col-lg-8 col-lg-offset-1">
+												<div class="form-group">
+													<label for="shippingAddress1" class="col-md-2 control-label">Address 1<small class="text-default">*</small></label>
+													<div class="col-md-10">
+														<input type="text" class="form-control" id="shippingAddress1" placeholder="Address 1" name="s_Address_1">
+													</div>
+												</div>
+												<div class="form-group">
+													<label for="shippingAddress2" class="col-md-2 control-label">Address 2</label>
+													<div class="col-md-10">
+														<input type="text" class="form-control" id="shippingAddress2" placeholder="Address 2" name="s_Address_2">
+													</div>
+												</div>
+									</fieldset>						
+
+
 			<!-- main-container end -->
 
 			<!-- section start -->

@@ -26,7 +26,7 @@
 							<h1 class="page-title">Myorder detail</h1>
 							<div class="separator-2"></div>
 							<!-- page-title end -->
-							
+							<form action="<?=base_url('paymentphoto')?>" method="POST" class="form-horizontal" enctype="multipart/form-data">
 							<table class="table cart">
 								<thead>
 									<tr>
@@ -49,31 +49,32 @@
 											<td class="billingaddress"><?=$v['product_title']?></td>
                                             <td class="billingaddress"><?=$v['product_price']?></td>
 										</tr>
-										
-                                  
 									</tbody>
+											
+									<input type="hidden" name="oid" value="<?=$v['oid']?>">
+									<?php
+                                          
+										}
+									}
+								
+								?>
 								</table>
 						</div>
 						<!-- main end -->
 					
-					<form action="<?=base_url('paymentphoto')?>" method="POST" class="form-horizontal" enctype="multipart/form-data">
+				
 					<div class="form-group row">
 							<div class="col-sm-2 control-label">image</div>
 								<div class="col-sm-6">
 										<input type="file" name="m_img" required accept="image/*">
-										<input type="hidden" name="oid" value="<?=$v['oid']?>">
+									
 								</div>
 					</div>
 
 					<button type="submit" class="btn btn-primary">Upload</button>
 					</form>
 				
-					<?php
-                                          
-										}
-									}
-								
-								?>
+				
 					</div>
 				</div>
 			</section>

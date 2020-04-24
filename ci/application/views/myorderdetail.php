@@ -48,7 +48,7 @@
 								<tr class="remove-data">
                                             <td class="quantity"><?=$v['qty']?></td>
 											<td class="billingaddress"><?=$v['product_title']?></td>
-                                            <td class="billingaddress"><?=$v['product_price']?></td>
+                                            <td class="billingaddress">RM<?=$v['product_price']?></td>
 										</tr>
 										
 										

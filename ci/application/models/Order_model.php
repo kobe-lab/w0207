@@ -14,7 +14,7 @@ class Order_model extends MY_Model{
     }
 
     public function paymentphoto1($oid){
-        $config['upload_path'] = './assets/';
+        $config['upload_path'] = './upload/';
         $config['allowed_types'] = 'gif|jpg|png|jpeg';
         $config['max_size'] = '2000';
         $config['max_width'] = '3000';

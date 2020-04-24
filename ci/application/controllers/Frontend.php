@@ -12,7 +12,8 @@ class Frontend extends CI_Controller{
         $this->load->model("Wishlist_model");
         $this->load->model("Order_model");
         $this->load->model("Orderitem_model");
-        
+    
+   
         
         $sid = session_id();
 
@@ -705,12 +706,27 @@ class Frontend extends CI_Controller{
             'oid' =>$oid,
         ));
 
+        
 
         $this->load->view("header", $this->data);
         $this->load->view("myorderdetail", $this->data);
         $this->load->view("footer", $this->data);
     }
-}
+
+    public function paymentphoto(){
+     
+        $oid = $this->input->post("oid", true);
+
+        $this->Order_model->paymentphoto1($oid);
+      
+                
+        redirect(base_url('myorder'));
+    }
+
+
+
+    }
+
 
 
 ?>

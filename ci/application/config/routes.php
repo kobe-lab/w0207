@@ -98,6 +98,7 @@ $route['removewishlistAPI'] = 'frontend/removewishlistAPI';
 $route['myorder'] = 'frontend/myorder';
 $route['myorderdetail'] = 'frontend/myorderdetail';
 $route['myorderdetail/(:num)'] = 'frontend/myorderdetail/$1';
+$route['paymentphoto'] = 'frontend/paymentphoto';
 
 $route['api/glogin']	 = 'api_login_manage/glogin';
 $route['api/flogin']	 = 'api_login_manage/flogin';

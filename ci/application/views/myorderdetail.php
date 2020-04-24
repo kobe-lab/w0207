@@ -70,7 +70,7 @@
 								</table>
 						</div>
 						<!-- main end -->
-					
+				
 				<fieldset>
 				
 				<div class="row">
@@ -89,11 +89,24 @@
 								<label for="image">Upload receipt:  </label> <input type="file" name="m_img" required accept="image/*">
 							</div>
 							<div>
-								<button type="submit" class="btn btn-primary">Upload</button>	
+								<button type="submit" class="btn btn-primary">Upload</button>
 							</div>
 					</div>
 				</div>
 				</fieldset>
+
+					
+					
+				<?php if(!empty($myOrderphoto['payment_photo'])){ ?>
+                        <div class="gallery-img">
+                         <img src="<?php echo base_url('upload/'.$myOrderphoto['payment_photo']); ?>">
+                            </div>
+                        </div>
+                    <?php } ?>
+              						
+
+
+
 					</form>
 				
 					</div>

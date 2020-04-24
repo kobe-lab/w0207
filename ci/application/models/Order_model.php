@@ -5,15 +5,22 @@ class Order_model extends MY_Model{
     
 
 
-    public function getid(){
+    // public function getid(){
 
-        $this->db->select("id");
-        $query = $this->db->get("sales_order");
-        $row = $query->row_array();
-        return $row['id'];
-    }
+    //     $this->db->select("id");
+    //     $query = $this->db->get("sales_order");
+    //     $row = $query->row_array();
+    //     return $row['id'];
+    // }
+
+
+
+
 
     public function paymentphoto1($oid){
+        
+       
+
         $config['upload_path'] = './upload/';
         $config['allowed_types'] = 'gif|jpg|png|jpeg';
         $config['max_size'] = '2000';

@@ -57,6 +57,8 @@ class Frontend extends CI_Controller{
         $this->data['myOrder'] = $this->Order_model->get_where(array(
                 'user_id' => $user_id,
             ));
+        
+        
      
     }
 
@@ -706,7 +708,9 @@ class Frontend extends CI_Controller{
             'oid' =>$oid,
         ));
 
-        
+        $this->data['myOrderphoto'] = $this->Order_model->getOne(array(
+            'id' =>$oid,
+        ));
 
         $this->load->view("header", $this->data);
         $this->load->view("myorderdetail", $this->data);

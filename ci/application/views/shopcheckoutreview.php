@@ -171,7 +171,7 @@
 							<div class="space-bottom"></div>
 							<div class="text-right">	
 								<a href="<?=base_url('shopcheckout')?>" class="btn btn-group btn-default"><i class="icon-left-open-big"></i> Go Back</a>
-								<input type="submit" name="blank_order" id="blank_order" value="Continue">
+								<input type="submit" name="blank_order" id="blank_order" class="btn btn-group btn-default" value="Continue">
 							</div>
 							</form>
 						</div>

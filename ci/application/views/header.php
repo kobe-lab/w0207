@@ -291,7 +291,16 @@
 																</table>
 																<div class="panel-body text-right">
 																	<a href="<?=base_url('shopcart')?>" class="btn btn-group btn-gray btn-sm">View Cart</a>
-																	<a href="<?=base_url('shopcheckout')?>" class="btn btn-group btn-gray btn-sm">Checkout</a>
+																		<?php
+																		if (isset($userdata) && !empty($userdata)) { ?>
+																		<a href="<?=base_url('shopcheckout')?>" class="btn btn-group btn-gray btn-sm">Checkout</a>
+																		<?php
+																		} else {
+																		?>
+																		<a href="<?=base_url('login')?>" class="btn btn-group btn-gray btn-sm">Checkout</a>
+																		<?php
+																		}
+																		?>
 																</div>
 															</li>
 														</ul>

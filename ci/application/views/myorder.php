@@ -3,7 +3,7 @@
 			<div class="breadcrumb-container">
 				<div class="container">
 					<ol class="breadcrumb">
-						<li><i class="fa fa-home pr-10"></i><a href="index.html">Home</a></li>
+						<li><i class="fa fa-home pr-10"></i><a href="<?=base_url("")?>">Home</a></li>
 						<li class="active">Myorder History</li>
 					</ol>
 				</div>
@@ -34,6 +34,7 @@
 										<th>Billing Adress </th>
 										<th>Shipping Address</th>
 										<th>Place Order Date</th>
+										<th>Attachment</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -49,6 +50,7 @@
 											<td class="billingaddress"><?=$v['bill_firstname'].$v['bill_lastname']."<br>".$v['bill_tel']."<br>".$v['bill_email']."<br>".$v['bill_address1'].$v['bill_address2'].$v['bill_zipcode'].$v['bill_city'].$v['bill_country']?></td>
 											<td class="shippingaddress"><?=$v['ship_firstname'].$v['ship_lastname']."<br>".$v['ship_tel']."<br>".$v['ship_email']."<br>".$v['ship_address1'].$v['ship_address2'].$v['ship_zipcode'].$v['ship_city'].$v['ship_country']?></td>				
 											<td class="placeorderdate"><?=$v['created_date']?></td>
+											<td class="Attachment"><?=$v['payment_photo']?></td>
 										</tr>
 										
                                     <?php

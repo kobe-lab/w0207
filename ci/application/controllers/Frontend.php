@@ -727,7 +727,18 @@ class Frontend extends CI_Controller{
         redirect(base_url('myorder'));
     }
 
-
+    public function shopcartupdate(){
+        $qty = $this->input->post("qty", true);
+        $sid            = session_id();
+        $this->Cart_model->update(array(
+            'sid' => $sid,
+        ), array(
+            'qty'      => $qty,
+            'modified_date' => date("Y-m-d H:i:s"),
+        ));
+        
+        redirect(base_url('shopcart'));
+    }
 
     }
 

@@ -28,7 +28,7 @@
 							<!-- page-title end -->
 							<p class="lead text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis a deleniti sequi necessitatibus, rem asperiores, magnam labore ullam sint placeat excepturi. Vero corrupti consequuntur id eum esse, rerum, iure neque.</p>
 							<p class="text-center">
-								<a href="index-shop.html" class="btn btn-default btn-lg">Continue Shopping!</a>	
+								<a href="<?=base_url("")?>" class="btn btn-default btn-lg">Continue Shopping!</a>	
 							</p>
 
 						</div>

@@ -88,6 +88,7 @@ $route['shopcheckout'] = 'frontend/shopcheckout';
 $route['shopcheckoutreview'] = 'frontend/shopcheckoutreview';
 $route['morereview'] = 'frontend/morereview';
 $route['completeorder'] = 'frontend/completeorder';
+$route['shopcartupdate'] = 'frontend/shopcartupdate';
 
 //wishlist
 $route['addwishlistAPI'] = 'frontend/addwishlistAPI';

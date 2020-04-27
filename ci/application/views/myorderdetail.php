@@ -3,7 +3,7 @@
 			<div class="breadcrumb-container">
 				<div class="container">
 					<ol class="breadcrumb">
-						<li><i class="fa fa-home pr-10"></i><a href="index.html">Home</a></li>
+						<li><i class="fa fa-home pr-10"></i><a href="<?=base_url("")?>">Home</a></li>
 						<li class="active">Myorder detail</li>
 					</ol>
 				</div>

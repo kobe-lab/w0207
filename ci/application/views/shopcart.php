@@ -27,7 +27,7 @@
 							<h1 class="page-title">Shopping Cart</h1>
 							<div class="separator-2"></div>
 							<!-- page-title end -->
-                          
+							<form method="post" action="<?=base_url('shopcartupdate')?>">       
 							<table class="table cart table-hover table-colored">
 								<thead>
 									<tr>
@@ -52,7 +52,7 @@
 										<td class="price">RM<?=$v['product_price']?> </td>
 										<td class="quantity">
 											<div class="form-group">
-												<input type="text" class="form-control" value="<?=$v['qty']?>">
+												<input type="text" class="form-control" name="qty" value="<?=$v['qty']?>">
 											</div>											
 										</td>
 										<td class="remove"><a  href="javascript:;" onclick="removeCartAjax('<?=$v['id']?>')" class="btn btn-remove btn-sm btn-default">Remove</a></td>
@@ -79,12 +79,12 @@
 								</tbody>
 							</table>
 							<div class="text-right">	
-								<a href="shop-cart.html" class="btn btn-group btn-default">Update Cart</a>
+								<input type="submit" class="btn btn-group btn-default" value="Update cart">
 								<a href="<?=base_url('shopcheckout')?>" class="btn btn-group btn-default">Checkout</a>
 							</div>
 
                         </div>
-                        
+                        </form>
 						<!-- main end -->
 
 					</div>

@@ -26,6 +26,15 @@ class Userlogin extends CI_Controller {
                 'user_id'      => $user['id'],
                 'modified_date' => date("Y-m-d H:i:s"),
             ));
+            $this->load->model("Wishlist_model");
+            $sid            = session_id();
+            $this->Wishlist_model->update(array(
+                'sid' => $sid,
+                'is_deleted'  => 0,
+            ), array(
+                'user_id'      => $user['id'],
+                'modified_date' => date("Y-m-d H:i:s"),
+            ));
             redirect(base_url(''));
         } else {
             redirect(base_url('userlogin?error=invalid'));

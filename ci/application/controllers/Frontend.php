@@ -160,7 +160,6 @@ class Frontend extends CI_Controller{
 
     }
 
-    
     public function addcartAPI(){
 
         $sid            = session_id();
@@ -181,8 +180,7 @@ class Frontend extends CI_Controller{
         // testing
         $product_title = $productData['title'];
         $product_price = $productData['price'];
-        $product_category_name = $productData['category_name'];
-
+        
         $cartData = $this->Cart_model->getOne(array(
             "sid" => $sid,
             'product_id' => $product_id,
@@ -211,7 +209,6 @@ class Frontend extends CI_Controller{
                 "qty"   =>$qty,
                 "product_id"   =>$product_id,
                 "product_title"   =>$product_title,
-                "product_category"   =>$product_category_name,
                 "product_price"   =>$product_price,
                 "created_date"   =>date("Y-m-d H:i:s"),
             ));
@@ -238,83 +235,64 @@ class Frontend extends CI_Controller{
 
     }
 
+
     public function addwishlistAPI(){
-        $sid            = session_id();
-        $product_id     = $this->input->post("product_id", true);
-        $total_price    = 0; 
+		$sid = session_id();
+		$qty 			= $this->input->post("qty", true);
+		$product_id 	= $this->input->post("product_id", true);
 
-        $productData = $this->Product_model->getOne(array(
-            'id' =>$product_id,
-        ));
+		$productData = $this->Product_model->getOne(array(
+			'id' => $product_id,
+		));
 
-        // unkown_error
-        if(empty($productData)){
-            show_error();
-        }
+		if(empty($productData)) {
+			show_error();
+		}
 
-        // testing
-        $product_title = $productData['title'];
-        $product_price = $productData['price'];
+		$product_title = $productData['title'];
+		$product_price = $productData['price'];
 
-        // $wishData = $this->Wishlist_model->getOne(array(
-        //     "sid" => $sid,
-        //     'product_id' => $product_id,
-        //     'is_deleted' => 0,
-        // ));
-
-
-
-        // if(!empty($wishData)){
-
-        //     $currentQty = $cartData['qty'];
-        //     $finalQty    = $currentQty + $qty;
-
-        //     $this->Wishlist_model->update(array(
-        //         'id' =>$cartData['id'],
-        //     ),array(
-        //         'qty' =>$finalQty,
-        //         'modified_date' => date("Y-m-d H:i:s"),
-        //     ));
+		//Determine is there any same product in cart in same sid
+		//if have update
+		//if not insert
+        $wishData = $this->Wishlist_model->getOne(array(
+                    "sid" => $sid,
+                    'product_id' => $product_id,
+                    'is_deleted' => 0,
+                ));
 
 
-        // }else{
+		if(!empty($wishData)) {
+
+			$currentQty = $wishData['qty'];
+			$finalQty = $currentQty + $qty;
+
+			$this->Wishlist_model->update(array(
+				'id' => $wishData['id'],
+			), array(
+				'qty' => $finalQty,
+				'modified_date' => date("Y-m-d H:i:s"),
+			));
+
+		} else {
 
             $wishlist_id = $this->Wishlist_model->insert(array(
                 "sid"   =>$sid,
                 "product_id"       =>$product_id,
                 "product_title"   =>$product_title,
                 "product_price"   =>$product_price,
-                "is_deleted"    =>0,
+                "is_deleted"    => 0,
                 "created_date"   =>date("Y-m-d H:i:s"),
             ));
-        
-            $wishcount = $this->Wishlist_model->record_count(array(
-                'sid' => $sid,
-                'is_deleted' => 0,
-            ));
-    
-            $wholeCartData = $this->Wishlist_model->get_where(array(
-                "sid" => $sid,
-                'is_deleted' => 0,
-    
-            ));
-    
-            foreach($wholeCartData as $k=>$v){
-                // $cartQty += $wholeCartData[$k]["qty"];
-                $total_price += ($wholeCartData[$k]["product_price"]);
-            }
-    
-            echo json_encode(array(
-                // 'wish_product'=>$wish_product,
-                // 'wish_detail'=>$wish_detail,
-                // 'sid'=>$sid,
-                'wishData'=>$wholeCartData,
-                'total_price'=>$total_price,
-                'status' => "ok",
-                'wishqty'=> $wishcount,
-            ));
 
-    }
+		}
+
+		echo json_encode(array(
+			'status' => "OK",
+		));
+
+
+	}
 
 
 

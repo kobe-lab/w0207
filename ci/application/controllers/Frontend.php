@@ -360,6 +360,7 @@ class Frontend extends CI_Controller{
         $cartExists = $this->Cart_model->getOne(array(
             'sid' => $sid,
             'product_id' => $product_id,
+            'is_deleted' => 0,
         ));
 
         if(empty($cartExists)){   

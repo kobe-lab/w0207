@@ -17,7 +17,7 @@
         <label>Email:</label><br>          
         <input type="text" name="email" value="<?=$userdata['email']?>" /><br><br> 
         <label>Password:</label><br>          
-        <input type="text" name="password" value="<?=$userdata['password']?>" /><br><br>   
+        <input type="text" name="password"  /><br><br>   
         <input type="submit" name="update_profile" value="Update Profile" />   
  </form>    
  <?php

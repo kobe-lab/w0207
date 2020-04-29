@@ -186,6 +186,34 @@
 		
 
 		<script>
+
+			var angularFormApp = angular.module("angularFormApp",[]);
+			angularFormApp.controller("addReview", ['$scope','$http',
+			function Formcontroller($scope,$http)
+			{
+			$scope.review = {};
+			$scope.submitForm=function(pid)
+			{	
+				$scope.review['product_id'] = '<?=$productData['id']?>';
+				$http({
+					method:'post',
+					url: "<?=base_url('addproductreview')?>",
+					data : $scope.review, 
+					headers : {'Content-Type': 'application/x-www-form-urlencoded'} 
+				}) .then(function(response){
+					
+				}, function(error){
+					$scope.errortext = "Unable to post review";
+					console.log($scope.errortext);
+				});
+			};
+			}]);
+
+
+
+
+
+
 			function print_minicart(markup){
 				$("#miniCart tbody").append(markup);
 

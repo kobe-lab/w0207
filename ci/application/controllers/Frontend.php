@@ -12,6 +12,7 @@ class Frontend extends CI_Controller{
         $this->load->model("Wishlist_model");
         $this->load->model("Order_model");
         $this->load->model("Orderitem_model");
+        $this->load->model("Productreview_model");
     
    
         
@@ -719,8 +720,21 @@ class Frontend extends CI_Controller{
         redirect(base_url('shopcart'));
     }
 
-    }
+    public function addproductreview()
+    {
+    $request= json_decode(file_get_contents('php://input'), TRUE);
+    $data=$this->Productreview_model->insert_form($request);
+     
+     if($data)
+      {
+         echo "success";
+      }else{
+         echo "failure";
+      }
 
+
+    }
+}
 
 
 ?>

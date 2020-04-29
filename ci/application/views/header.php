@@ -63,6 +63,7 @@
 		<meta name="google-signin-scope" content="profile email">
 	    <meta name="google-signin-client_id" content="693437561551-cflb2un717og7ss4vl5d9n8k66kooj1c.apps.googleusercontent.com">
 	    <script src="https://apis.google.com/js/platform.js" async defer></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"> </script>
 	</head>
 
 	<!-- body classes:  -->

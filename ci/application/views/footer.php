@@ -191,18 +191,29 @@
 			angularFormApp.controller("addReview", ['$scope','$http',
 			function Formcontroller($scope,$http)
 			{
+
+
+			//get review
+			$scope.getreview = function(){
+
+			$http({
+			method: 'get',
+			url:  "<?=base_url('getreview/'.$productData['id'])?>",
+			}).then(function successCallback(response) {
+			// Assign response to users object
+			$scope.reviews = response.data;
+			}); 
+			}
+			$scope.getreview();
+			
+
+
+			//add review
 			$scope.review = {};
 
-			
-
-
-
-			$scope.submitForm=function(pid)
+			$scope.submitForm=function()
 			{	
 				$scope.review['product_id'] = '<?=$productData['id']?>';
-				$scope.review['created_date'] = '<?=date("Y-m-d H:i:s")?>';
-				$scope.review['is_deleted'] = 0;
-			
 
 				$http({
 					method:'post',
@@ -210,7 +221,9 @@
 					data : $scope.review, 
 					headers : {'Content-Type': 'application/x-www-form-urlencoded'} 
 				}) .then(function(response){
-					alert("post review");
+					$scope.getreview();
+					alert("Add cart successfully");
+					
 				}, function(error){
 					$scope.errortext = "Unable to post review";
 					console.log($scope.errortext);

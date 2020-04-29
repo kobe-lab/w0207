@@ -101,8 +101,9 @@ $route['myorderdetail'] = 'frontend/myorderdetail';
 $route['myorderdetail/(:num)'] = 'frontend/myorderdetail/$1';
 $route['paymentphoto'] = 'frontend/paymentphoto';
 
-//addproductreview
+//productreview
 $route['addproductreview'] = 'frontend/addproductreview';
+$route['getreview/(:num)'] = 'frontend/getreview/$1';
 
 $route['api/glogin']	 = 'api_login_manage/glogin';
 $route['api/flogin']	 = 'api_login_manage/flogin';

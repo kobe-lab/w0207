@@ -734,7 +734,20 @@ class Frontend extends CI_Controller{
 
 
     }
+
+    public function getreview($pid){
+        // get data
+
+        $data = $this->Productreview_model->get_where(array(
+            'product_id' =>$pid,
+        ));
+
+        echo json_encode($data);
+      }
+    
+    
 }
+
 
 
 ?>

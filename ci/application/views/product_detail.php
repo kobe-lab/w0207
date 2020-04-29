@@ -115,7 +115,7 @@
 			<!-- section start -->
 			<!-- ================ -->
 			<section class="pv-30 light-gray-bg">
-				<div class="container">
+				<div ng-app="angularFormApp" ng-controller="addReview" class="container">
 					<div class="row">
 						<div class="col-md-8">
 							<!-- Nav tabs -->
@@ -133,21 +133,23 @@
 									</dl>
 									<hr>
 								</div>
-								<div ng-app="angularFormApp" ng-controller="addReview" class="tab-pane fade" id="h2tab3">
+								<div class="tab-pane fade" id="h2tab3">
 									<!-- comments start -->
-									<div class="comments margin-clear space-top">
+									<div ng-repeat="item in reviews" class="comments margin-clear space-top">
 										<!-- comment start -->
 										<div class="comment clearfix">
 											<div class="comment-avatar">
 												<img class="img-circle" src="images/avatar.jpg" alt="avatar">
 											</div>
 											<header>
-												<h3>Amazing!</h3>
-												<div class="comment-meta"> <i class="fa fa-star text-default"></i> <i class="fa fa-star text-default"></i> <i class="fa fa-star text-default"></i> <i class="fa fa-star text-default"></i> <i class="fa fa-star"></i> | Today, 12:31</div>
+												<h3>{{item.name}}</h3>
+												<div class="comment-meta"> 
+												rating({{item.rating}}/5) | {{item.created_date}}</div>
 											</header>
 											<div class="comment-content">
 												<div class="comment-body clearfix">
-													<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo </p>
+													<p>{{item.subject}}
+														<pre>{{item.message}}</pre></p>
 													<a href="blog-post.html" class="btn-sm-link link-dark pull-right"><i class="fa fa-reply"></i> Reply</a>
 												</div>
 											</div>

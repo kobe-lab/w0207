@@ -115,13 +115,13 @@
 			<!-- section start -->
 			<!-- ================ -->
 			<section class="pv-30 light-gray-bg">
-				<div ng-app="angularFormApp" ng-controller="addReview" class="container">
+				<div class="container">
 					<div class="row">
-						<div class="col-md-8">
+						<div ng-app="angularFormApp" ng-controller="addReview" class="col-md-8">
 							<!-- Nav tabs -->
 							<ul class="nav nav-tabs style-4" role="tablist">
 								<li class="active"><a href="#h2tab2" role="tab" data-toggle="tab"><i class="fa fa-files-o pr-5"></i>Specifications</a></li>
-								<li><a href="#h2tab3" role="tab" data-toggle="tab"><i class="fa fa-star pr-5"></i>(3) Reviews</a></li>
+								<li><a href="#h2tab3" role="tab" data-toggle="tab"><i class="fa fa-star pr-5"></i>({{reviews.length}}) Reviews</a></li>
 							</ul>
 							<!-- Tab panes -->
 							<div class="tab-content padding-top-clear padding-bottom-clear">

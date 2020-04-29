@@ -192,16 +192,25 @@
 			function Formcontroller($scope,$http)
 			{
 			$scope.review = {};
+
+			
+
+
+
 			$scope.submitForm=function(pid)
 			{	
 				$scope.review['product_id'] = '<?=$productData['id']?>';
+				$scope.review['created_date'] = '<?=date("Y-m-d H:i:s")?>';
+				$scope.review['is_deleted'] = 0;
+			
+
 				$http({
 					method:'post',
 					url: "<?=base_url('addproductreview')?>",
 					data : $scope.review, 
 					headers : {'Content-Type': 'application/x-www-form-urlencoded'} 
 				}) .then(function(response){
-					
+					alert("post review");
 				}, function(error){
 					$scope.errortext = "Unable to post review";
 					console.log($scope.errortext);

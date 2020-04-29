@@ -11,7 +11,10 @@ class Productreview_model extends MY_Model{
         'name'=>$request['name'],
         'subject'=>$request['subject'],
         'rating'=>$request['rating'],
-        'message'=>$request['message']
+        'message'=>$request['message'],
+        'is_deleted'=>$request['is_deleted'],
+        'created_date'=>$request['created_date'],
+        
     ));
         return $insertStatus;
     }

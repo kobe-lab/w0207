@@ -133,7 +133,7 @@
 									</dl>
 									<hr>
 								</div>
-								<div class="tab-pane fade" id="h2tab3">
+								<div ng-app="angularFormApp" ng-controller="addReview" class="tab-pane fade" id="h2tab3">
 									<!-- comments start -->
 									<div class="comments margin-clear space-top">
 										<!-- comment start -->
@@ -159,7 +159,7 @@
 									<!-- comments end -->
 
 									<!-- comments form start -->
-									<div ng-app="angularFormApp" ng-controller="addReview" class="comments-form" >
+									<div class="comments-form" >
 										<h2 class="title">Add your Review</h2>
 										<form class="form-horizontal"  ng-submit="submitForm()">
 											<div class="form-group has-feedback">

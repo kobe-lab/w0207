@@ -70,6 +70,57 @@
 		
 		</script>
 
+
+	
+		<script>
+			var order = angular.module("order",[]);
+			order.controller("ordermanagement", ['$scope','$http',
+			function Formcontroller($scope,$http)
+			{
+
+			
+			//get review angular js
+			$scope.getreview = function(){
+
+			$http({
+			method: 'get',
+			url:  "<?=base_url('getorder')?>",
+			}).then(function successCallback(response) {
+			// Assign response to users object
+			$scope.reviews = response.data;
+			}); 
+			}
+			$scope.getreview();
+			
+		
+
+
+			//add review  angular js
+			// $scope.review = {};
+
+			// $scope.submitForm=function()
+			// {	
+			// 	$scope.review['product_id'] = '<?=$productData['id']?>';
+
+			// 	$http({
+			// 		method:'post',
+			// 		url: "<?=base_url('addproductreview')?>",
+			// 		data : $scope.review, 
+			// 		headers : {'Content-Type': 'application/x-www-form-urlencoded'} 
+			// 	}) .then(function(response){
+			// 		$scope.getreview();
+			// 		alert("Add cart successfully");
+					
+			// 	}, function(error){
+			// 		$scope.errortext = "Unable to post review";
+			// 		console.log($scope.errortext);
+			// 	});
+			// };
+		
+
+
+		</script>	
+
 	</body>
 
 </html>

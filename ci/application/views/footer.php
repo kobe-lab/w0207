@@ -187,13 +187,51 @@
 
 		<script>
 
+				function use_discountCode(priceTotal){
+				
+				console.log("Analyzing discount code...");
+				console.log("price before discount : $"+priceTotal);
+				$.getJSON("<?=base_url('discount_code')?>/" +$("#dc").val(), function(result){
+					console.log(result);
+					//result = JSON.parse(result);
+					var discount = result.result;
+				
+					if(result.status == "OK"){
+						console.log("Coupon code applied successfully!");
+						console.log("discount price : "+result.result);
+
+						$("#discount_value").text("- RM"+ result.result); // outputs discount value based on result
+						var total = $("#total_amount").text();
+						console.log("Price before discount :"+total);
+						var finalTotal = priceTotal - discount;
+						console.log("Price after discount : $"+finalTotal);
+						$("#total_amount").val(finalTotal).text("RM"+finalTotal);
+					} else {
+						console.log("failed");
+						alert("Invalid or wrong coupon code");
+					}
+
+				});
+
+			}
+
+	
+
+
+
+
+
 			var angularFormApp = angular.module("angularFormApp",[]);
 			angularFormApp.controller("addReview", ['$scope','$http',
 			function Formcontroller($scope,$http)
 			{
 
+			<?php
+			if(isset($productData)) {
 
-			//get review
+			
+			?>
+			//get review angular js
 			$scope.getreview = function(){
 
 			$http({
@@ -206,9 +244,10 @@
 			}
 			$scope.getreview();
 			
+		
 
 
-			//add review
+			//add review  angular js
 			$scope.review = {};
 
 			$scope.submitForm=function()
@@ -229,9 +268,12 @@
 					console.log($scope.errortext);
 				});
 			};
+		
+
+			<?php
+			}
+			?>
 			}]);
-
-
 
 
 

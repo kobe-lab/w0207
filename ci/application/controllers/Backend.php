@@ -71,6 +71,13 @@ class Backend extends CI_Controller {
         $this->footer();
     }
 
+    public function ordermanagement(){
+        $this->load->model("Order_model");
+
+        $this->header();
+        $this->load->view("backend/ordermanagement", $this->data);
+        $this->footer();
+    }
     
 
 }

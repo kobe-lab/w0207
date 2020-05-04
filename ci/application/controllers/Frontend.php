@@ -13,6 +13,7 @@ class Frontend extends CI_Controller{
         $this->load->model("Order_model");
         $this->load->model("Orderitem_model");
         $this->load->model("Productreview_model");
+        $this->load->model("Discount_model");
     
    
         
@@ -724,7 +725,7 @@ class Frontend extends CI_Controller{
     {
     $request= json_decode(file_get_contents('php://input'), TRUE);
     $data=$this->Productreview_model->insert_form($request);
-     
+
      if($data)
       {
          echo "success";
@@ -732,7 +733,7 @@ class Frontend extends CI_Controller{
          echo "failure";
       }
 
-
+    
     }
 
     public function getreview($pid){
@@ -745,7 +746,29 @@ class Frontend extends CI_Controller{
         echo json_encode($data);
       }
     
-    
+      public function discount_code($userInputDC){
+
+        $discountPrice = 0;
+        if(!empty($userInputDC)){
+            $findCode = $this->Discount_model->getOne(array(
+                'code' => $userInputDC,
+                'is_deleted' => 0,
+            ));
+            $discountPrice = $findCode['price'];
+            if(empty($discountPrice)){
+                $discountPrice = 0;
+                echo json_encode(array(
+                    "status" => "fail",
+                    "result" => $discountPrice,
+                ));
+            }else{
+                echo json_encode(array(
+                    "status" => "OK",
+                    "result" => $discountPrice
+                ));
+            }
+        }
+      }
 }
 
 

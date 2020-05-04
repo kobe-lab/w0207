@@ -45,6 +45,8 @@
 		<link rel="apple-touch-startup-image" href="<?=base_url('assets/backend/img/splash/ipad-portrait.png')?>" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)">
 		<link rel="apple-touch-startup-image" href="<?=base_url('assets/backend/img/splash/iphone.png')?>" media="screen and (max-device-width: 320px)">
 
+		<!-- angularjs -->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"> </script>
 	</head>
 
 	<!--
@@ -321,7 +323,7 @@
 
 				<ul>
 					<li class="">
-						<a href="index.html" title="blank_"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">Blank</span></a>
+						<a href="<?=base_url('ordermanagement')?>" title="OrderManagement"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">Order Management</span></a>
 					</li>
 				</ul>
 			</nav>

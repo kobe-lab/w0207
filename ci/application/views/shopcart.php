@@ -65,16 +65,18 @@
                                            }                            
                                            ?>
 									<tr>
-										<td colspan="3">Discount Coupon</td>
-										<td colspan="2">
+										<td >Discount Coupon</td>
+										<td >
 											<div class="form-group">
-												<input type="text" class="form-control">
+												<input id="dc" name="discountCode" type="text" class="form-control" placeholder="Enter Coupon Code">
 											</div>											
 										</td>
+										<td><a class="btn btn-group btn-default"   onclick="use_discountCode('<?=$total_amount?>')"> Apply</a><td>
+										<td class="amount"><div id="discount_value">%__</div></td>
                                     </tr>
 									<tr>
 										<td class="total-quantity" colspan="4">Total <?=$total_qty?> Items</td>
-										<td class="total-amount">RM<?=$total_amount?></td>
+										<td class="total-amount" id="total_amount">RM<?=$total_amount?></td>
 									</tr>
 								</tbody>
 							</table>
@@ -82,11 +84,9 @@
 								<input type="submit" class="btn btn-group btn-default" value="Update cart">
 								<a href="<?=base_url('shopcheckout')?>" class="btn btn-group btn-default">Checkout</a>
 							</div>
-
                         </div>
                         </form>
 						<!-- main end -->
-
 					</div>
 				</div>
 			</section>

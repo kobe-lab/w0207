@@ -105,6 +105,12 @@ $route['paymentphoto'] = 'frontend/paymentphoto';
 $route['addproductreview'] = 'frontend/addproductreview';
 $route['getreview/(:num)'] = 'frontend/getreview/$1';
 
+//discount
+$route['discount_code/(:any)'] = 'frontend/discount_code/$1';
+
+//backend
+$route['ordermanagement'] = 'backend/ordermanagement';
+
 $route['api/glogin']	 = 'api_login_manage/glogin';
 $route['api/flogin']	 = 'api_login_manage/flogin';
 

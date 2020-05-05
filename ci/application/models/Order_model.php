@@ -47,6 +47,28 @@ class Order_model extends MY_Model{
 
         }
     }
+
+    
+
+    function getRecords(){
+
+        // Select user records
+        $this->db->select('*');
+        $q = $this->db->get('sales_order');
+        $results = $q->result_array();
+    
+        return $results;
+      }
+
+
+      function getRecord(){
+
+        $this->db->select("id,user_id,sid,bill_firstname,bill_lastname,bill_tel, bill_email, bill_address1, bill_address2, bill_country,bill_city, bill_zipcode, bill_addinfo, ship_firstname, ship_lastname, ship_tel, ship_email, ship_address1, ship_address2, ship_country, ship_city, ship_zipcode, payment_totalamount, payment_status, created_date");
+        $q = $this->db->get('sales_order');
+        $results = $q->result_array();
+    
+        return $results;
+      }
 }
 
 

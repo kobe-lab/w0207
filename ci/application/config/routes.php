@@ -110,6 +110,12 @@ $route['discount_code/(:any)'] = 'frontend/discount_code/$1';
 
 //backend
 $route['ordermanagement'] = 'backend/ordermanagement';
+$route['getOrder'] = 'backend/getOrder';
+$route['export'] = 'backend/export';
+$route['edit/(:num)'] = "backend/editorder/$1";
+$route['editorderdata'] = "backend/editorderdata";
+$route['orderdetail/(:num)'] = "backend/orderdetail/$1";
+
 
 $route['api/glogin']	 = 'api_login_manage/glogin';
 $route['api/flogin']	 = 'api_login_manage/flogin';

@@ -71,55 +71,86 @@
 		</script>
 
 
-	
+
 		<script>
-			var order = angular.module("order",[]);
-			order.controller("ordermanagement", ['$scope','$http',
-			function Formcontroller($scope,$http)
-			{
+		var fetch = angular.module('myapp', []);
 
-			
-			//get review angular js
-			$scope.getreview = function(){
+		fetch.controller('orderCtrl', ['$scope', '$http',function ($scope, $http) {
 
-			$http({
+		$scope.getOrders = function(){
+		$http({
 			method: 'get',
-			url:  "<?=base_url('getorder')?>",
-			}).then(function successCallback(response) {
+			url: '<?=base_url('getOrder')?>'
+		}).then(function successCallback(response) {
 			// Assign response to users object
-			$scope.reviews = response.data;
-			}); 
-			}
-			$scope.getreview();
+			$scope.orders = response.data;
+		}); 
+		}
+		$scope.getOrders();
+
+	
+		$scope.edit = function(id){
 			
+			location.href = "<?=base_url('edit/')?>"+id;
+		
+		}
+
+		$scope.orderdetail = function(id){
+			location.href = "<?=base_url('orderdetail/')?>"+id;
+		}
+
 		
 
+		<?php
+			if(isset($myOrderdetail)) {
 
-			//add review  angular js
-			// $scope.review = {};
+			
+			?>
+		$scope.myOrderdetail = <?=json_encode($myOrderdetail);?>
+			<?php
+			}
+			?>
 
-			// $scope.submitForm=function()
-			// {	
-			// 	$scope.review['product_id'] = '<?=$productData['id']?>';
-
-			// 	$http({
-			// 		method:'post',
-			// 		url: "<?=base_url('addproductreview')?>",
-			// 		data : $scope.review, 
-			// 		headers : {'Content-Type': 'application/x-www-form-urlencoded'} 
-			// 	}) .then(function(response){
-			// 		$scope.getreview();
-			// 		alert("Add cart successfully");
-					
-			// 	}, function(error){
-			// 		$scope.errortext = "Unable to post review";
-			// 		console.log($scope.errortext);
-			// 	});
-			// };
+		}]);
 		
-
-
 		</script>	
+
+		<script>
+		var editorder = angular.module('myapp2', []);
+
+		editorder.controller('editctrl', ['$scope', '$http',function ($scope, $http) {
+
+			<?php
+			if(isset($editorder)) {
+
+			
+			?>
+		$scope.editorders = <?=json_encode($editorder);?>
+			<?php
+			}
+			?>
+
+		$scope.editorder=function()
+			{	
+				
+				$http({
+					method:'post',
+					url: "<?=base_url('editorderdata')?>",
+					data : $scope.editorders, 
+					headers : {'Content-Type': 'application/x-www-form-urlencoded'} 
+				}) .then(function(response){
+				
+					alert("Edit successfully");
+					
+				}, function(error){
+					$scope.errortext = "Unable to edit";
+					console.log($scope.errortext);
+				});
+			};
+
+		}]);
+		</script>	
+
 
 	</body>
 
